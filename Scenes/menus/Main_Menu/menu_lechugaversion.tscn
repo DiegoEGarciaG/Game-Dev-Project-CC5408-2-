@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://b70aqhwtdii2i"]
 
 [ext_resource type="Script" path="res://Scenes/menus/Main_Menu/menu_lechugaversion.gd" id="1_iu3e1"]
 
