@@ -1,3 +1,50 @@
-[gd_scene format=3 uid="uid://dd87caookt5ci"]
+[gd_scene load_steps=3 format=3 uid="uid://dd87caookt5ci"]
 
-[node name="MenuBackground" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://0e75w6amc6xm" path="res://Assets/Menus/background_0.png" id="1_5baiw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f670k"]
+font_size = 18
+
+[node name="MenuBackground" type="PanelContainer"]
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Background0" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(579.5, 326.375)
+scale = Vector2(4.03125, 3.62639)
+texture = ExtResource("1_5baiw")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Background0"]
+offset_left = -57.2308
+offset_top = -50.2439
+offset_right = 57.7692
+offset_bottom = 51.7561
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Background0/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Background0/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Jueguito"
+label_settings = SubResource("LabelSettings_f670k")
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Play"
+
+[node name="Settings" type="Button" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Settings"
+
+[node name="Exit" type="Button" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Exit"
