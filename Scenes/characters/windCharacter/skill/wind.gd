@@ -12,7 +12,6 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	print("alo")
 	if body.has_method("wind_movement"):
 		body.wind_movement(200*movement_vector.rotated(rotation))
 	

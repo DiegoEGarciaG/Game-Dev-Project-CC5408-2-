@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://ddaxyhcyfjyli" path="res://Assets/charactersAssets/WindCharacterAssets/Sprite Sheets/run cycle 48x48.png" id="3_5ehup"]
 [ext_resource type="Texture2D" uid="uid://bv34o1q2wt8ci" path="res://Assets/charactersAssets/WindCharacterAssets/PlayerWalk/PlayerWalk 48x48.png" id="4_cadxp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m1j1o"]
-size = Vector2(20, 27)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sbneg"]
+radius = 7.44344
+height = 27.1636
 
 [sub_resource type="Animation" id="Animation_4efyq"]
 length = 0.001
@@ -230,6 +231,7 @@ _data = {
 scale = Vector2(1.88085, 1.98983)
 collision_layer = 8
 collision_mask = 7
+safe_margin = 0.2
 script = ExtResource("1_uep8d")
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -243,7 +245,7 @@ position = Vector2(13, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
-shape = SubResource("RectangleShape2D_m1j1o")
+shape = SubResource("CapsuleShape2D_sbneg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
