@@ -13,9 +13,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var canon = $Pivot/Canon
 @onready var pivot = $Pivot
 
+# on-wind movement
+var is_on_wind_area = false
+var wind_vector = Vector2.ZERO
 
 # direction
-var rot = 0
+var vec = Vector2(0,0)
 
 # Shooting wind
 var wind_scene = preload("res://Scenes/characters/windCharacter/skill/wind.tscn")
@@ -29,26 +32,34 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+	var direction_y = Input.get_axis("ui_up", "ui_down")
+	vec.y = direction_y
+
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	velocity.y += wind_vector.y
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction_x = Input.get_axis("ui_left", "ui_right")
-	var direction_y = Input.get_axis("ui_up", "ui_down")
+	var angle;
 	if direction_x:
 		animation_player.play("walk")
 		pivot.scale.x = sign(direction_x)
-		velocity.x = move_toward(velocity.x, direction_x*SPEED, ACCELERATION*delta)
+		velocity.x = move_toward(velocity.x, direction_x*SPEED, ACCELERATION*delta) + wind_vector.x
+		vec.x = direction_x
+		angle = vec.angle()
 	else:
+		if direction_y:
+			angle = Vector2(0,direction_y).angle()
+		else:
+			angle = vec.angle()
 		animation_player.play("idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	var vec = Vector2(direction_x, direction_y)
-	var angle = vec.angle()
+		velocity.x = move_toward(velocity.x, 0, SPEED) + wind_vector.x
+		
 	canon.rotation = angle
 	move_and_slide()
-	
 	
 	
 	
@@ -57,3 +68,13 @@ func cast_wind():
 	w.global_position = canon.global_position
 	w.rotation = canon.rotation + PI/2
 	emit_signal("wind_cast", w)
+
+
+func wind_movement(wind_vec):
+	wind_vector = wind_vec
+	is_on_wind_area = true
+	
+	
+func out_of_wind_area():
+	wind_vector = Vector2.ZERO
+	is_on_wind_area = false

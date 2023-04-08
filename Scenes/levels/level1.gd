@@ -2,7 +2,7 @@ extends Node2D
 
 
 @onready var winds = $winds
-@onready var player = $WindCharacter
+@onready var player = $char
 
 func _ready():
 	player.connect("wind_cast", _on_player_wind_cast)
