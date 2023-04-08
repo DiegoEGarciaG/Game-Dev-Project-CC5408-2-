@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://caysqhjvw1pbi"]
+[gd_scene load_steps=5 format=3 uid="uid://caysqhjvw1pbi"]
 
 [ext_resource type="PackedScene" uid="uid://c45be4h8u2ft2" path="res://Scenes/maps/main.tscn" id="1_1v5rs"]
+[ext_resource type="Script" path="res://Scenes/levels/level1.gd" id="1_t4eey"]
 [ext_resource type="PackedScene" uid="uid://kfjpocuygc5f" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="2_ihstl"]
+[ext_resource type="PackedScene" uid="uid://c0h7tv8y375y8" path="res://Scenes/characters/windCharacter/skill/wind.tscn" id="3_gkr8g"]
 
 [node name="level1" type="Node2D"]
+script = ExtResource("1_t4eey")
 
 [node name="main" parent="." instance=ExtResource("1_1v5rs")]
 
 [node name="WindCharacter" parent="." instance=ExtResource("2_ihstl")]
 position = Vector2(299, 361)
 scale = Vector2(1.78433, 2.28479)
+
+[node name="wind" parent="." instance=ExtResource("3_gkr8g")]
+position = Vector2(531, 376)
+
+[node name="winds" type="Node2D" parent="."]
