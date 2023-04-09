@@ -80,6 +80,13 @@ text = "9"
 layout_mode = 2
 text = "10"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Test"
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
@@ -97,5 +104,6 @@ text = "Regresar"
 layout_mode = 2
 text = "Salir"
 
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
