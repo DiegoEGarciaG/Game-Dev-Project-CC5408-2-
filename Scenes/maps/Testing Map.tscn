@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://mg158ctqhv0d"]
+[gd_scene load_steps=8 format=3 uid="uid://mg158ctqhv0d"]
 
 [ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="1_e04ga"]
 [ext_resource type="Script" path="res://Scenes/maps/Testing Map.gd" id="1_owwyp"]
 [ext_resource type="PackedScene" uid="uid://kfjpocuygc5f" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="2_rcf75"]
+[ext_resource type="Script" path="res://Scenes/characters/windCharacter/WindCharacter.gd" id="4_yur77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vt2dw"]
 size = Vector2(32, 32)
@@ -407,6 +408,7 @@ one_way_collision = true
 
 [node name="WindCharacter" parent="." instance=ExtResource("2_rcf75")]
 position = Vector2(1975, 78)
+script = ExtResource("4_yur77")
 
 [node name="Camera2D" type="Camera2D" parent="WindCharacter"]
 
