@@ -412,7 +412,7 @@ position = Vector2(1975, 78)
 
 [node name="winds" type="Node2D" parent="."]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["pushable"]]
 collision_layer = 17
 can_sleep = false
 

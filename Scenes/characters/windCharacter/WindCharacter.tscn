@@ -241,7 +241,7 @@ texture = ExtResource("2_njpcc")
 hframes = 10
 
 [node name="Canon" type="Node2D" parent="Pivot"]
-position = Vector2(13, 0)
+position = Vector2(18, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)

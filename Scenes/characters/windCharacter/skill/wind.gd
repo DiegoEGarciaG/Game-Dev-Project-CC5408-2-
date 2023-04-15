@@ -12,13 +12,17 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	if body.has_method("wind_movement"):
-		body.wind_movement(200*movement_vector.rotated(rotation))
+	if body.has_method("wind_movement_ch"):
+		body.wind_movement_ch(200*movement_vector.rotated(rotation))
+	else:
+		if body.is_in_group("pushable"):
+			body.apply_central_force(100000*movement_vector.rotated(rotation))
 	
 
 func _on_body_exited(body):
 	if body.has_method("out_of_wind_area"):
 		body.out_of_wind_area()
+	
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

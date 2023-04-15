@@ -70,7 +70,7 @@ func cast_wind():
 	emit_signal("wind_cast", w)
 
 
-func wind_movement(wind_vec):
+func wind_movement_ch(wind_vec):
 	wind_vector = wind_vec
 	is_on_wind_area = true
 	
