@@ -5,9 +5,10 @@ signal wind_cast(wind)
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const ACCELERATION = 1000
-
+const SLOW_FALL_FACTOR = 0.9
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 
 @onready var animation_player = $AnimationPlayer
 @onready var canon = $Pivot/Canon
@@ -32,17 +33,20 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	var direction_y = Input.get_axis("ui_up", "ui_down")
+	var direction_y = Input.get_axis("KEY_UP", "KEY_DOWN")
 	vec.y = direction_y
 
-	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	################## Handle Jump and Slower Fall ###########################
+	if Input.is_action_just_pressed("KEY_JUMP") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	if Input.is_action_pressed("KEY_JUMP") and velocity.y > 0:
+		velocity.y *= SLOW_FALL_FACTOR
 	velocity.y += wind_vector.y
+	################## END OF Handle Jump and Slower Fall ###########################	
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction_x = Input.get_axis("ui_left", "ui_right")
+	var direction_x = Input.get_axis("KEY_LEFT", "KEY_RIGHT")
 	var angle;
 	if direction_x:
 		animation_player.play("walk")
@@ -59,6 +63,11 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED) + wind_vector.x
 		
 	canon.rotation = angle
+	
+	############## Stop Moving and Pointing
+	if Input.is_action_pressed("KEY_SHIFT"):
+		velocity.x = 0
+		
 	move_and_slide()
 	
 	
