@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://mg158ctqhv0d"]
+[gd_scene load_steps=21 format=3 uid="uid://mg158ctqhv0d"]
 
 [ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="1_e04ga"]
 [ext_resource type="Script" path="res://Scenes/maps/Testing Map.gd" id="1_owwyp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ddpxod3w5qiis" path="res://Assets/Maps/KnoblePersona/Steampunk Broken Brick Back.png" id="6_ktuy0"]
 [ext_resource type="Texture2D" uid="uid://dugpkmgeq0ils" path="res://Assets/Maps/KnoblePersona/Steampunk Corse Elements.png" id="7_ui4j5"]
 [ext_resource type="Texture2D" uid="uid://ct1p0ukds16wl" path="res://Assets/Maps/KnoblePersona/Steampunk Brick Back.png" id="8_41g73"]
+[ext_resource type="PackedScene" uid="uid://grm6xlghgon3" path="res://Scenes/characters/hookCharacter/HookCharacter.tscn" id="9_manye"]
 [ext_resource type="Texture2D" uid="uid://bnh0hwokbsvt4" path="res://Assets/Maps/KnoblePersona/Steampunk Blocks.png" id="9_nc8w2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rms1"]
@@ -674,3 +675,6 @@ shape = SubResource("RectangleShape2D_l7jo5")
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 position = Vector2(283, 138)
 texture = ExtResource("1_e04ga")
+
+[node name="WindCharacter2" parent="." instance=ExtResource("9_manye")]
+position = Vector2(2034, 77)
