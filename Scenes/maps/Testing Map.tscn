@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://mg158ctqhv0d"]
+[gd_scene load_steps=20 format=3 uid="uid://mg158ctqhv0d"]
 
-[ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="1_e04ga"]
 [ext_resource type="Script" path="res://Scenes/maps/Testing Map.gd" id="1_owwyp"]
 [ext_resource type="PackedScene" uid="uid://kfjpocuygc5f" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="2_rcf75"]
 [ext_resource type="Texture2D" uid="uid://ch3cplu4vqh6f" path="res://Assets/Maps/KnoblePersona/Steampunk Corse Elements Dark.png" id="5_q2q3n"]
 [ext_resource type="Texture2D" uid="uid://ddpxod3w5qiis" path="res://Assets/Maps/KnoblePersona/Steampunk Broken Brick Back.png" id="6_ktuy0"]
 [ext_resource type="Texture2D" uid="uid://dugpkmgeq0ils" path="res://Assets/Maps/KnoblePersona/Steampunk Corse Elements.png" id="7_ui4j5"]
 [ext_resource type="Texture2D" uid="uid://ct1p0ukds16wl" path="res://Assets/Maps/KnoblePersona/Steampunk Brick Back.png" id="8_41g73"]
+[ext_resource type="PackedScene" uid="uid://bf3oslhrgtg6d" path="res://Scenes/Objects/Box.tscn" id="9_2cj05"]
 [ext_resource type="PackedScene" uid="uid://grm6xlghgon3" path="res://Scenes/characters/hookCharacter/HookCharacter.tscn" id="9_manye"]
 [ext_resource type="Texture2D" uid="uid://bnh0hwokbsvt4" path="res://Assets/Maps/KnoblePersona/Steampunk Blocks.png" id="9_nc8w2"]
 
@@ -636,10 +636,8 @@ sources/1 = SubResource("TileSetAtlasSource_5q583")
 sources/3 = SubResource("TileSetAtlasSource_npuh2")
 sources/4 = SubResource("TileSetAtlasSource_imvyq")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7jo5"]
-size = Vector2(120, 116)
-
 [node name="Testing Map" type="Node2D"]
+position = Vector2(-1, 0)
 script = ExtResource("1_owwyp")
 
 [node name="Background 0" type="TileMap" parent="."]
@@ -664,17 +662,8 @@ position = Vector2(1975, 78)
 
 [node name="winds" type="Node2D" parent="."]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="." groups=["pushable"]]
-collision_layer = 17
-can_sleep = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(283, 142)
-shape = SubResource("RectangleShape2D_l7jo5")
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(283, 138)
-texture = ExtResource("1_e04ga")
-
-[node name="WindCharacter2" parent="." instance=ExtResource("9_manye")]
+[node name="HookCharacter" parent="." instance=ExtResource("9_manye")]
 position = Vector2(2034, 77)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("9_2cj05")]
+position = Vector2(190, 12)
