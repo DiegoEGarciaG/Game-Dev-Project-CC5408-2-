@@ -1,13 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://kfjpocuygc5f"]
+[gd_scene load_steps=10 format=3 uid="uid://kfjpocuygc5f"]
 
-[ext_resource type="Script" path="res://Scenes/characters/windCharacter/WindCharacter.gd" id="1_woif0"]
 [ext_resource type="Texture2D" uid="uid://bvf7iyqksijj2" path="res://Assets/charactersAssets/WindCharacterAssets/Sprite Sheets/Character Idle 48x48.png" id="2_njpcc"]
 [ext_resource type="Texture2D" uid="uid://ddaxyhcyfjyli" path="res://Assets/charactersAssets/WindCharacterAssets/Sprite Sheets/run cycle 48x48.png" id="3_5ehup"]
 [ext_resource type="Texture2D" uid="uid://bv34o1q2wt8ci" path="res://Assets/charactersAssets/WindCharacterAssets/PlayerWalk/PlayerWalk 48x48.png" id="4_cadxp"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sbneg"]
-radius = 7.44344
-height = 27.1636
 
 [sub_resource type="Animation" id="Animation_4efyq"]
 length = 0.001
@@ -227,12 +222,15 @@ _data = {
 "walk": SubResource("Animation_uha51")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hew8t"]
+radius = 7.44344
+height = 27.1636
+
 [node name="WindCharacter" type="CharacterBody2D" groups=["pushable"]]
 scale = Vector2(1.88085, 1.98983)
 collision_layer = 8
 collision_mask = 7
 safe_margin = 0.2
-script = ExtResource("1_woif0")
 
 [node name="Pivot" type="Node2D" parent="."]
 
@@ -243,12 +241,12 @@ hframes = 10
 [node name="Canon" type="Node2D" parent="Pivot"]
 position = Vector2(18, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
-shape = SubResource("CapsuleShape2D_sbneg")
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_68kpx")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("CapsuleShape2D_hew8t")
