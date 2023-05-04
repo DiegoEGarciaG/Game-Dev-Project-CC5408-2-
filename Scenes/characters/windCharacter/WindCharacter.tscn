@@ -230,6 +230,7 @@ height = 27.1636
 scale = Vector2(1.88085, 1.98983)
 collision_layer = 8
 collision_mask = 7
+input_pickable = true
 safe_margin = 0.2
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -250,3 +251,5 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
 shape = SubResource("CapsuleShape2D_hew8t")
+
+[node name="Timer" type="Timer" parent="."]

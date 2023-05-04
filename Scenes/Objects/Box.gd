@@ -3,14 +3,12 @@ extends RigidBody2D
 @onready var timer = $Timer
 @onready var inRange = false
 
-signal mouse_over
 signal body_clicked
 
 func _ready():
 	connect("mouse_entered", _on_mouse_entered)
 	connect("mouse_exited", _on_mouse_exited)
-	$Timer.connect("timeout", _on_body_timer_timeout)
-	connect("mouse_over", _on_mouse_over)
+	$Timer.connect("timeout", _on_mouse_over)
 	connect("body_clicked", _on_body_clicked)
 	timer.wait_time = 0.1
 	timer.one_shot = false

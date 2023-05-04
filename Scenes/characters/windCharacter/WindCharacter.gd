@@ -24,9 +24,23 @@ var vec = Vector2(0,0)
 # Shooting wind
 var wind_scene = preload("res://Scenes/characters/windCharacter/skill/wind.tscn")
 
+# Interacciones Latigo
+@onready var timer = $Timer
+@onready var inRange = false
+
+signal body_clicked
+
 func _process(_delta):
 	if Input.is_action_just_pressed("cast"):
 		cast_wind()
+
+func _ready():
+	connect("mouse_entered", _on_mouse_entered)
+	connect("mouse_exited", _on_mouse_exited)
+	$Timer.connect("timeout", _on_mouse_over)
+	connect("body_clicked", _on_body_clicked)
+	timer.wait_time = 0.1
+	timer.one_shot = false
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -82,8 +96,39 @@ func cast_wind():
 func wind_movement_ch(wind_vec):
 	wind_vector = wind_vec
 	is_on_wind_area = true
-	
-	
+
 func out_of_wind_area():
 	wind_vector = Vector2.ZERO
 	is_on_wind_area = false
+
+#Latigo
+func _on_mouse_entered():
+	timer.start()
+
+func _on_mouse_exited():
+	timer.stop()
+	$Pivot/Sprite2D.modulate = Color8(255, 255, 255)
+
+func _on_body_timer_timeout():
+	# Envía la señal que desees cuando el temporizador se agota (se activa)
+	emit_signal("mouse_over")
+
+func _on_mouse_over():
+	var hookCharacter = get_parent().get_node_or_null("HookCharacter")
+	if hookCharacter != null:
+		var distancia = self.global_transform.origin.distance_to(hookCharacter.global_transform.origin)
+		if(distancia < 350):
+			$Pivot/Sprite2D.modulate = Color8(250, 250, 150)
+			inRange = true
+		else:
+			$Pivot/Sprite2D.modulate = Color8(255, 255, 255)
+			inRange = false
+
+func _on_body_clicked():
+	var hookCharacter = get_parent().get_node_or_null("HookCharacter")
+	var vector_direccion = hookCharacter.global_position - self.global_position
+	self.velocity += vector_direccion.normalized() * 3800 + Vector2.UP * 150
+
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and inRange:
+		emit_signal("body_clicked")
