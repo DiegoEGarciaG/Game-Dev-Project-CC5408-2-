@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf3oslhrgtg6d"]
+[gd_scene load_steps=4 format=3 uid="uid://bf3oslhrgtg6d"]
 
+[ext_resource type="Script" path="res://Scenes/Objects/Box.gd" id="1_fuov5"]
 [ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="1_lhnbt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5ojh"]
@@ -7,7 +8,9 @@ size = Vector2(120, 116)
 
 [node name="Box" type="RigidBody2D" groups=["pushable"]]
 collision_layer = 17
+input_pickable = true
 can_sleep = false
+script = ExtResource("1_fuov5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -1)
@@ -16,3 +19,5 @@ shape = SubResource("RectangleShape2D_v5ojh")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -5)
 texture = ExtResource("1_lhnbt")
+
+[node name="Timer" type="Timer" parent="."]
