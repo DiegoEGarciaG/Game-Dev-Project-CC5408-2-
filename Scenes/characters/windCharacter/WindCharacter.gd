@@ -9,11 +9,14 @@ const SLOW_FALL_FACTOR = 0.9
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+	
+
 
 @onready var animation_player = $AnimationPlayer
 @onready var canon = $Pivot/Canon
 @onready var pivot = $Pivot
-
+#@onready var animation_tree = $AnimationTree
+#@onready var playback = animation_tree.get("parameters/playback")
 # on-wind movement
 var is_on_wind_area = false
 var wind_vector = Vector2.ZERO
@@ -40,8 +43,8 @@ func _ready():
 	$Timer.connect("timeout", _on_mouse_over)
 	connect("body_clicked", _on_body_clicked)
 	timer.wait_time = 0.1
-	timer.one_shot = false
-
+	timer.one_shot = false 
+	#animation_tree.active = true
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -83,6 +86,18 @@ func _physics_process(delta):
 		velocity.x = 0
 		
 	move_and_slide()
+	
+	#animation
+#	if is_on_floor():
+#		if abs(velocity.x) > 10:
+#			playback.travel("walk")
+#		else:
+#			playback.travel("idle")
+#	else:
+#		if velocity.y < 0:
+#			playback.travel("going_up")
+#		else:
+#			playback.travel("going_down")
 	
 	
 	
