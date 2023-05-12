@@ -15,8 +15,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player = $AnimationPlayer
 @onready var canon = $Pivot/Canon
 @onready var pivot = $Pivot
-#@onready var animation_tree = $AnimationTree
-#@onready var playback = animation_tree.get("parameters/playback")
+@onready var animation_tree = $AnimationTree
+@onready var playback = animation_tree.get("parameters/playback")
 # on-wind movement
 var is_on_wind_area = false
 var wind_vector = Vector2.ZERO
@@ -44,7 +44,7 @@ func _ready():
 	connect("body_clicked", _on_body_clicked)
 	timer.wait_time = 0.1
 	timer.one_shot = false 
-	#animation_tree.active = true
+	animation_tree.active = true
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -66,7 +66,7 @@ func _physics_process(delta):
 	var direction_x = Input.get_axis("KEY_LEFT", "KEY_RIGHT")
 	var angle;
 	if direction_x:
-		animation_player.play("walk")
+		#animation_player.play("walk")
 		pivot.scale.x = sign(direction_x)
 		velocity.x = move_toward(velocity.x, direction_x*SPEED, ACCELERATION*delta) + wind_vector.x
 		vec.x = direction_x
@@ -76,7 +76,7 @@ func _physics_process(delta):
 			angle = Vector2(0,direction_y).angle()
 		else:
 			angle = vec.angle()
-		animation_player.play("idle")
+		#animation_player.play("idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED) + wind_vector.x
 		
 	canon.rotation = angle
@@ -88,16 +88,16 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	#animation
-#	if is_on_floor():
-#		if abs(velocity.x) > 10:
-#			playback.travel("walk")
-#		else:
-#			playback.travel("idle")
-#	else:
-#		if velocity.y < 0:
-#			playback.travel("going_up")
-#		else:
-#			playback.travel("going_down")
+	if is_on_floor():
+		if abs(velocity.x) > 10:
+			playback.travel("walk")
+		else:
+			playback.travel("idle")
+	else:
+		if velocity.y < 0:
+			playback.start("going_up")
+		else:
+			playback.start("going_down")
 	
 	
 	
