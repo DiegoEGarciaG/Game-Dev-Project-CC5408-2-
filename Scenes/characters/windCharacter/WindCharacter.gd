@@ -31,7 +31,7 @@ var wind_scene = preload("res://Scenes/characters/windCharacter/skill/wind.tscn"
 @onready var timer = $Timer
 @onready var inRange = false
 
-signal body_clicked
+signal body_clicked()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("cast"):
@@ -122,6 +122,7 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	timer.stop()
+	inRange = false
 	$Pivot/Sprite2D.modulate = Color8(255, 255, 255)
 
 func _on_body_timer_timeout():

@@ -3,7 +3,7 @@ extends RigidBody2D
 @onready var timer = $Timer
 @onready var inRange = false
 
-signal body_clicked
+signal body_clicked()
 
 func _ready():
 	connect("mouse_entered", _on_mouse_entered)
@@ -18,6 +18,7 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	timer.stop()
+	inRange = false
 	$Sprite2D.modulate = Color8(255, 255, 255)
 	
 func _on_body_timer_timeout():
