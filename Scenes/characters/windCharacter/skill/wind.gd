@@ -1,7 +1,6 @@
 extends Area2D
 
 @export var speed := 100
-@export var acceleration := 500
 var movement_vector := Vector2(0,-1)
 
 var player = preload("res://Scenes/characters/windCharacter/WindCharacter.tscn")

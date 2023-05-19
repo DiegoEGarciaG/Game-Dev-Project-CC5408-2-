@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://grm6xlghgon3" path="res://Scenes/characters/hookCharacter/HookCharacter.tscn" id="9_manye"]
 [ext_resource type="Texture2D" uid="uid://bnh0hwokbsvt4" path="res://Assets/Maps/KnoblePersona/Steampunk Blocks.png" id="9_nc8w2"]
 [ext_resource type="PackedScene" uid="uid://kfjpocuygc5f" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="10_lghra"]
-[ext_resource type="Script" path="res://Scenes/characters/windCharacter/WindCharacter.gd" id="11_8mhdb"]
+[ext_resource type="PackedScene" uid="uid://bddon0hwgy0bj" path="res://Scenes/Objects/trampoline.tscn" id="12_24r58"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nw7v"]
 texture = ExtResource("2_ga36s")
@@ -712,11 +712,16 @@ layer_0/tile_data = PackedInt32Array(1572895, 131072, 4, 1638431, 131072, 6, 170
 position = Vector2(2034, 77)
 
 [node name="RigidBody2D2" parent="." instance=ExtResource("9_2cj05")]
-position = Vector2(190, 12)
+position = Vector2(1776, -52)
 
 [node name="WindCharacter" parent="." instance=ExtResource("10_lghra")]
 position = Vector2(1863, 104)
-script = ExtResource("11_8mhdb")
 
 [node name="Camera2D" type="Camera2D" parent="WindCharacter"]
 zoom = Vector2(1.2, 1.2)
+
+[node name="trampoline2" parent="." instance=ExtResource("12_24r58")]
+position = Vector2(1568, -97)
+
+[node name="trampoline" parent="." instance=ExtResource("12_24r58")]
+position = Vector2(1776, 151)

@@ -20,6 +20,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 # on-wind movement
 var is_on_wind_area = false
 var wind_vector = Vector2.ZERO
+var TRAMPOLINE_IMPULSE = Vector2.ZERO
+var TRAMPOLINE_IMPULSE_B = false
 
 # direction
 var vec = Vector2(0,0)
@@ -45,10 +47,12 @@ func _ready():
 	timer.wait_time = 0.1
 	timer.one_shot = false 
 	animation_tree.active = true
+	
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += (gravity + wind_vector.y*5) * delta
+	
 
 	var direction_y = Input.get_axis("KEY_UP", "KEY_DOWN")
 	vec.y = direction_y
@@ -58,7 +62,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("KEY_JUMP") and velocity.y > 0:
 		velocity.y *= SLOW_FALL_FACTOR
-	velocity.y += wind_vector.y
+	velocity.y += wind_vector.y*delta
 	################## END OF Handle Jump and Slower Fall ###########################	
 	
 	# Get the input direction and handle the movement/deceleration.
@@ -68,7 +72,7 @@ func _physics_process(delta):
 	if direction_x:
 		#animation_player.play("walk")
 		pivot.scale.x = sign(direction_x)
-		velocity.x = move_toward(velocity.x, direction_x*SPEED, ACCELERATION*delta) + wind_vector.x
+		velocity.x = move_toward(velocity.x, direction_x*SPEED+ wind_vector.x, ACCELERATION*delta) 
 		vec.x = direction_x
 		angle = vec.angle()
 	else:
@@ -77,10 +81,15 @@ func _physics_process(delta):
 		else:
 			angle = vec.angle()
 		#animation_player.play("idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED) + wind_vector.x
-		
+		velocity.x = move_toward(velocity.x, 0+ wind_vector.x, ACCELERATION*delta) 
 	canon.rotation = angle
 	
+###########################		
+	# Trampoline	
+	if TRAMPOLINE_IMPULSE_B:
+		velocity = TRAMPOLINE_IMPULSE	
+###########################
+
 	############## Stop Moving and Pointing
 	if Input.is_action_pressed("KEY_SHIFT"):
 		velocity.x = 0
@@ -107,7 +116,8 @@ func cast_wind():
 	w.rotation = canon.rotation + PI/2
 	emit_signal("wind_cast", w)
 
-
+#######################
+# Viento
 func wind_movement_ch(wind_vec):
 	wind_vector = wind_vec
 	is_on_wind_area = true
@@ -115,7 +125,9 @@ func wind_movement_ch(wind_vec):
 func out_of_wind_area():
 	wind_vector = Vector2.ZERO
 	is_on_wind_area = false
+#######################
 
+#######################
 #Latigo
 func _on_mouse_entered():
 	timer.start()
@@ -148,3 +160,17 @@ func _on_body_clicked():
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and inRange:
 		emit_signal("body_clicked")
+#######################
+
+###########################
+# Trampolín
+func trampoline_impulse_in(impulse):
+	TRAMPOLINE_IMPULSE = impulse
+	TRAMPOLINE_IMPULSE_B = true
+
+func trampoline_impulse_out():
+	TRAMPOLINE_IMPULSE = Vector2.ZERO
+	TRAMPOLINE_IMPULSE_B = false
+	
+###########################
+	
