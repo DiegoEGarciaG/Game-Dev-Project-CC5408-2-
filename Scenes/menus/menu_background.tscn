@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dd87caookt5ci"]
+[gd_scene load_steps=4 format=3 uid="uid://dd87caookt5ci"]
 
 [ext_resource type="Texture2D" uid="uid://0e75w6amc6xm" path="res://Assets/Menus/background_0.png" id="1_5baiw"]
+[ext_resource type="Script" path="res://Scenes/menus/menu_background.gd" id="1_npl3c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f670k"]
 font_size = 18
 
 [node name="MenuBackground" type="PanelContainer"]
 visible = false
+script = ExtResource("1_npl3c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -38,16 +40,19 @@ label_settings = SubResource("LabelSettings_f670k")
 horizontal_alignment = 1
 
 [node name="Play" type="Button" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Play"
 
 [node name="Settings" type="Button" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Settings"
 
 [node name="Exit" type="Button" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Exit"

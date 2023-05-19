@@ -2,9 +2,10 @@ extends Node2D
 
 
 @onready var winds = $winds
-@onready var player = $char
+@onready var player = $WindCharacter
 
 func _ready():
+	preload("res://Scenes/characters/windCharacter/WindCharacter.tscn")
 	player.connect("wind_cast", _on_player_wind_cast)
 	
 	
