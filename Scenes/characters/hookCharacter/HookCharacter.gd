@@ -4,6 +4,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 const ACCELERATION = 1000
 const RANGE = 100
+var TRAMPOLINE_IMPULSE = Vector2.ZERO
+var TRAMPOLINE_IMPULSE_B = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -47,7 +49,13 @@ func _physics_process(delta):
 	else:
 		animation_player.play("idle")
 		velocity.x = move_toward(velocity.x, 0, SPEED) + wind_vector.x
-		
+	
+	###########################		
+	# Trampoline	
+	if TRAMPOLINE_IMPULSE_B:
+		velocity = TRAMPOLINE_IMPULSE	
+	###########################
+	
 	move_and_slide()
 
 func wind_movement_ch(wind_vec):
@@ -58,3 +66,15 @@ func wind_movement_ch(wind_vec):
 func out_of_wind_area():
 	wind_vector = Vector2.ZERO
 	is_on_wind_area = false
+	
+###########################
+# Trampolín
+func trampoline_impulse_in(impulse):
+	TRAMPOLINE_IMPULSE = impulse
+	TRAMPOLINE_IMPULSE_B = true
+
+func trampoline_impulse_out():
+	TRAMPOLINE_IMPULSE = Vector2.ZERO
+	TRAMPOLINE_IMPULSE_B = false
+	
+###########################
