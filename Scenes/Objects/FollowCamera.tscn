@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://b6ail2v8rscx"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/FollowCamera.gd" id="1_5f0ac"]
+[ext_resource type="PackedScene" uid="uid://q8jp7eq2amp1" path="res://Scenes/menus/pause.tscn" id="2_5fcer"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_l280j"]
+a = Vector2(2, 322)
+b = Vector2(2, -320)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_qaidf"]
+a = Vector2(-32, -317)
+b = Vector2(-32, 326)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_mxxy3"]
+a = Vector2(1151, 10)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_y4mpp"]
+a = Vector2(619, 328)
+b = Vector2(-535, 328)
+
+[node name="FollowCamera" type="Camera2D"]
+script = ExtResource("1_5f0ac")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.5
+offset_top = -112.5
+offset_right = 317.5
+offset_bottom = 317.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="MarginContainer" parent="MarginContainer" instance=ExtResource("2_5fcer")]
+layout_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-41, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-541, 1)
+shape = SubResource("SegmentShape2D_l280j")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(653, -3)
+shape = SubResource("SegmentShape2D_qaidf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-534, -333)
+shape = SubResource("SegmentShape2D_mxxy3")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("SegmentShape2D_y4mpp")
