@@ -4,10 +4,13 @@ extends Area2D
 var movement_vector := Vector2(0,-1)
 
 var player = preload("res://Scenes/characters/windCharacter/WindCharacter.tscn")
+@onready var animation_player = $AnimationPlayer
+
 
 func _physics_process(delta):
 #	movement_vector = movement_vector.rotated(rotation)
 	global_position += movement_vector.rotated(rotation) * speed * delta
+	animation_player.play("moving")
 
 
 func _on_body_entered(body):
@@ -18,6 +21,8 @@ func _on_body_entered(body):
 	elif body.is_in_group("breakable_wall"):
 		var wall = body as StaticBody2D
 		wall.breakWall()
+		queue_free()
+	elif body.is_in_group("wall"):
 		queue_free()
 	
 
