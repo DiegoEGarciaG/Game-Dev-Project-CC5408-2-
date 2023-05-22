@@ -13,6 +13,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player = $AnimationPlayer
 @onready var canon = $Pivot/Canon
 @onready var pivot = $Pivot
+@onready var swinging = false
+@onready var swingable = null
 
 # on-wind movement
 var is_on_wind_area = false
@@ -23,6 +25,9 @@ var vec = Vector2(0,0)
 
 # Shooting wind
 var wind_scene = preload("res://Scenes/characters/windCharacter/skill/wind.tscn")
+
+func _ready():
+	$"../Swingable".connect("Swing", swing)
 
 func _process(_delta):
 	pass
@@ -78,3 +83,11 @@ func trampoline_impulse_out():
 	TRAMPOLINE_IMPULSE_B = false
 	
 ###########################
+
+func swing(Swingable):
+	swingable = Swingable
+	swinging = true
+
+func unSwing(Swingable):
+	swingable = null
+	swinging = false
