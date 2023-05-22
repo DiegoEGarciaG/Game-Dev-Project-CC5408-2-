@@ -71,7 +71,6 @@ func _physics_process(delta):
 	
 	var angle;
 	if direction_x:
-		print(direction_x)
 		pivot.scale.x = sign(direction_x)
 		velocity.x = move_toward(velocity.x, direction_x*SPEED+ wind_vector.x, ACCELERATION*delta) 
 		vec.x = direction_x
@@ -123,9 +122,7 @@ func cast_wind():
 		wind_on_CD = true
 		cd_wind.wait_time = 1
 		cd_wind.start()
-		print("hola")
 		var w = wind_scene.instantiate()
-		print("alo")
 		w.global_position = canon.global_position
 		w.rotation = canon.rotation + PI/2
 		emit_signal("wind_cast", w)

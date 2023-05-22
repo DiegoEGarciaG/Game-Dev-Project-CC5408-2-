@@ -11,10 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var new_position = Vector2.ZERO
-	var distance = Vector2.ZERO
 	new_position = nodes[0].global_position + nodes[1].global_position
-	distance = abs(nodes[0].global_position - nodes[1].global_position)
 	new_position /= nodes.size()
-	print(distance)
 	global_position = new_position
 	
