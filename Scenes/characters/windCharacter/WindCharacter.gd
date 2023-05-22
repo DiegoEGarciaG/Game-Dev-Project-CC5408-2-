@@ -68,9 +68,10 @@ func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction_x = Input.get_axis("KEY_LEFT", "KEY_RIGHT")
+	
 	var angle;
 	if direction_x:
-		#animation_player.play("walk")
+		print(direction_x)
 		pivot.scale.x = sign(direction_x)
 		velocity.x = move_toward(velocity.x, direction_x*SPEED+ wind_vector.x, ACCELERATION*delta) 
 		vec.x = direction_x
@@ -80,9 +81,9 @@ func _physics_process(delta):
 			angle = Vector2(0,direction_y).angle()
 		else:
 			angle = vec.angle()
-		#animation_player.play("idle")
 		velocity.x = move_toward(velocity.x, 0+ wind_vector.x, ACCELERATION*delta) 
 	canon.rotation = angle
+
 	
 ###########################		
 	# Trampoline	
@@ -109,15 +110,26 @@ func _physics_process(delta):
 			playback.start("going_down")
 	
 	
-	
-func cast_wind():
-	var w = wind_scene.instantiate()
-	w.global_position = canon.global_position
-	w.rotation = canon.rotation + PI/2
-	emit_signal("wind_cast", w)
-
 #######################
 # Viento
+@onready var cd_wind = $CD_Wind
+var wind_on_CD := false
+
+func _on_cd_wind_timeout():
+	wind_on_CD = false
+	
+func cast_wind():
+	if not wind_on_CD:
+		wind_on_CD = true
+		cd_wind.wait_time = 1
+		cd_wind.start()
+		print("hola")
+		var w = wind_scene.instantiate()
+		print("alo")
+		w.global_position = canon.global_position
+		w.rotation = canon.rotation + PI/2
+		emit_signal("wind_cast", w)
+
 func wind_movement_ch(wind_vec):
 	wind_vector = wind_vec
 	is_on_wind_area = true
@@ -174,3 +186,5 @@ func trampoline_impulse_out():
 	
 ###########################
 	
+
+
