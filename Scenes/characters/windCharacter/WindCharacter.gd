@@ -104,7 +104,7 @@ func _physics_process(delta):
 		else:
 			playback.travel("idle")
 	else:
-		if velocity.y < 0:
+		if velocity.y < 20:
 			playback.start("going_up")
 		else:
 			playback.start("going_down")

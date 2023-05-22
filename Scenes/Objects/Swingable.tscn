@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbitpjpmo8jap"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Swingable.gd" id="1_lmrbe"]
+[ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="2_urjq4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v5ojh"]
+size = Vector2(50, 50)
+
+[node name="Swingable" type="RigidBody2D"]
+disable_mode = 1
+collision_layer = 17
+input_pickable = true
+gravity_scale = 0.0
+can_sleep = false
+freeze = true
+script = ExtResource("1_lmrbe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -5)
+shape = SubResource("RectangleShape2D_v5ojh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, -5)
+scale = Vector2(0.391745, 0.391745)
+texture = ExtResource("2_urjq4")
+
+[node name="Timer" type="Timer" parent="."]
