@@ -431,4 +431,3 @@ position = Vector2(505, 56)
 
 [node name="FollowCamera" parent="." instance=ExtResource("7_by7t6")]
 position = Vector2(-6.10352e-05, -3.8147e-06)
-scale = Vector2(1, 1)
