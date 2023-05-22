@@ -19,9 +19,6 @@ func _on_body_entered(body):
 		var wall = body as StaticBody2D
 		wall.breakWall()
 		queue_free()
-	elif body.is_in_group("wall"):
-		queue_free()
-		
 	
 
 func _on_body_exited(body):

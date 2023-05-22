@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://mg158ctqhv0d"]
+[gd_scene load_steps=21 format=3 uid="uid://mg158ctqhv0d"]
 
 [ext_resource type="Script" path="res://Scenes/maps/Testing Map.gd" id="1_owwyp"]
 [ext_resource type="Texture2D" uid="uid://dh5bmlglwq0m3" path="res://Assets/Maps/KnoblePersona/Stairs.png" id="2_ga36s"]
@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://kfjpocuygc5f" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="10_lghra"]
 [ext_resource type="PackedScene" uid="uid://bddon0hwgy0bj" path="res://Scenes/Objects/trampoline.tscn" id="12_24r58"]
 [ext_resource type="PackedScene" uid="uid://dul7gyx1rr8nt" path="res://Scenes/Objects/Breakable_Wall.tscn" id="12_dxkcc"]
-[ext_resource type="PackedScene" uid="uid://b6ail2v8rscx" path="res://Scenes/Objects/FollowCamera.tscn" id="13_d47yo"]
-[ext_resource type="PackedScene" uid="uid://bbitpjpmo8jap" path="res://Scenes/Objects/Swingable.tscn" id="14_057jn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nw7v"]
 texture = ExtResource("2_ga36s")
@@ -390,8 +388,7 @@ texture = ExtResource("9_nc8w2")
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_2pjs0"]
-physics_layer_0/collision_layer = 19
-physics_layer_0/collision_mask = 25
+physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Platform 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
@@ -692,7 +689,7 @@ sources/1 = SubResource("TileSetAtlasSource_ko8vl")
 position = Vector2(-1, 0)
 script = ExtResource("1_owwyp")
 
-[node name="Physic elements 1" type="TileMap" parent="." groups=["wall"]]
+[node name="Physic elements 1" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_2pjs0")
 format = 2
 layer_0/name = "Backgroung 0"
@@ -721,16 +718,14 @@ position = Vector2(1042, -22)
 [node name="WindCharacter" parent="." instance=ExtResource("10_lghra")]
 position = Vector2(1863, 104)
 
-[node name="trampoline2" parent="." groups=["wall"] instance=ExtResource("12_24r58")]
+[node name="Camera2D" type="Camera2D" parent="WindCharacter"]
+zoom = Vector2(1.2, 1.2)
+
+[node name="trampoline2" parent="." instance=ExtResource("12_24r58")]
 position = Vector2(1074, 199)
 
-[node name="trampoline" parent="." groups=["wall"] instance=ExtResource("12_24r58")]
+[node name="trampoline" parent="." instance=ExtResource("12_24r58")]
 position = Vector2(1780, 158)
 
 [node name="Breakable_Wall" parent="." instance=ExtResource("12_dxkcc")]
 position = Vector2(2339, 171)
-
-[node name="FollowCamera" parent="." instance=ExtResource("13_d47yo")]
-
-[node name="Swingable" parent="." instance=ExtResource("14_057jn")]
-position = Vector2(1941, 122)
