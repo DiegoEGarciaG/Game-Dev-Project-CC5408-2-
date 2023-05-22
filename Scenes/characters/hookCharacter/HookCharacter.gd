@@ -28,6 +28,7 @@ var wind_scene = preload("res://Scenes/characters/windCharacter/skill/wind.tscn"
 
 func _ready():
 	$"../Swingable".connect("Swing", swing)
+	$"../Swingable".connect("unSwing", unSwing)
 
 func _process(_delta):
 	pass
@@ -35,7 +36,16 @@ func _process(_delta):
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		if not swinging:
+			velocity.y += gravity * delta
+		else:
+			# Calcula la posición deseada en la circunferencia alrededor del objetivo
+			var angle = deg_to_rad($".".global_transform.origin.angle_to(swingable.global_transform.origin))
+			var desired_position = $".".global_transform.origin + Vector2(cos(angle), sin(angle)) * ($".".global_transform.origin.distance_to(swingable.global_transform.origin))
+	
+			# Mueve el personaje hacia la posición deseada
+			velocity = (desired_position - position).normalized() * SPEED
+			move_and_slide()
 
 	################## Handle Jump and Slower Fall ###########################
 	if Input.is_action_just_pressed("KEY_UP_HOOK") and is_on_floor():
@@ -88,6 +98,6 @@ func swing(Swingable):
 	swingable = Swingable
 	swinging = true
 
-func unSwing(Swingable):
+func unSwing():
 	swingable = null
 	swinging = false

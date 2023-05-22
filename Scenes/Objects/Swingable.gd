@@ -5,6 +5,7 @@ extends RigidBody2D
 
 signal body_clicked()
 signal Swing(custom_node_argument)
+signal unSwing()
 
 func _ready():
 	connect("mouse_entered", _on_mouse_entered)
@@ -20,6 +21,7 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	timer.stop()
 	inRange = false
+	emit_signal("unSwing")
 	$Sprite2D.modulate = Color8(255, 255, 255)
 	
 func _on_body_timer_timeout():
