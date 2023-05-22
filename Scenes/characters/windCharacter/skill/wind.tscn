@@ -1,10 +1,83 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0h7tv8y375y8"]
+[gd_scene load_steps=7 format=3 uid="uid://c0h7tv8y375y8"]
 
-[ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="1_mtm4r"]
-[ext_resource type="Script" path="res://Scenes/characters/windCharacter/skill/wind.gd" id="1_vfe6s"]
+[ext_resource type="Script" path="res://Scenes/characters/windCharacter/skill/wind.gd" id="1_xnb1u"]
+[ext_resource type="Texture2D" uid="uid://j7fwa7b52ur3" path="res://Assets/ObjectAssets/Wind.png" id="2_ve5d2"]
+
+[sub_resource type="Animation" id="Animation_5y1w3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_wefn6"]
+resource_name = "moving"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vkmt1"]
+_data = {
+"RESET": SubResource("Animation_5y1w3"),
+"moving": SubResource("Animation_wefn6")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31jid"]
-size = Vector2(53, 69)
+size = Vector2(53, 47.5)
 
 [node name="wind" type="Area2D"]
 rotation = 1.5708
@@ -14,20 +87,27 @@ collision_mask = 25
 gravity_point_center = Vector2(1, -1)
 gravity_direction = Vector2(1, -1)
 gravity = 2552.2
-script = ExtResource("1_vfe6s")
+script = ExtResource("1_xnb1u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vkmt1")
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.8147e-06, -35)
+position = Vector2(-3.81473e-06, -24.25)
 shape = SubResource("RectangleShape2D_31jid")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -35)
-scale = Vector2(0.415675, 0.541546)
-texture = ExtResource("1_mtm4r")
+position = Vector2(0, -25)
+rotation = -1.5708
+scale = Vector2(1.5, 1.954)
+texture = ExtResource("2_ve5d2")
+hframes = 2
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0, -35)
-scale = Vector2(2.66464, 3.45992)
+position = Vector2(0, -21.8898)
+scale = Vector2(2.66464, 2.1489)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

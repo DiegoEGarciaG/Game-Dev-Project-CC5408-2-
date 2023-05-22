@@ -689,7 +689,7 @@ sources/1 = SubResource("TileSetAtlasSource_ko8vl")
 position = Vector2(-1, 0)
 script = ExtResource("1_owwyp")
 
-[node name="Physic elements 1" type="TileMap" parent="."]
+[node name="Physic elements 1" type="TileMap" parent="." groups=["wall"]]
 tile_set = SubResource("TileSet_2pjs0")
 format = 2
 layer_0/name = "Backgroung 0"
