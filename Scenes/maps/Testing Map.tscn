@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://mg158ctqhv0d"]
+[gd_scene load_steps=24 format=3 uid="uid://mg158ctqhv0d"]
 
 [ext_resource type="Script" path="res://Scenes/maps/Testing Map.gd" id="1_owwyp"]
 [ext_resource type="Texture2D" uid="uid://dh5bmlglwq0m3" path="res://Assets/Maps/KnoblePersona/Stairs.png" id="2_ga36s"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://kfjpocuygc5f" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="10_lghra"]
 [ext_resource type="PackedScene" uid="uid://bddon0hwgy0bj" path="res://Scenes/Objects/trampoline.tscn" id="12_24r58"]
 [ext_resource type="PackedScene" uid="uid://dul7gyx1rr8nt" path="res://Scenes/Objects/Breakable_Wall.tscn" id="12_dxkcc"]
+[ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="13_ruhe3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nw7v"]
 texture = ExtResource("2_ga36s")
@@ -685,6 +686,11 @@ terrain_set_1/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_b2w75")
 sources/1 = SubResource("TileSetAtlasSource_ko8vl")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n3o1y"]
+size = Vector2(60, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8kbk"]
+
 [node name="Testing Map" type="Node2D"]
 position = Vector2(-1, 0)
 script = ExtResource("1_owwyp")
@@ -710,13 +716,13 @@ layer_0/tile_data = PackedInt32Array(1572895, 131072, 4, 1638431, 131072, 6, 170
 [node name="winds" type="Node2D" parent="."]
 
 [node name="HookCharacter" parent="." instance=ExtResource("9_manye")]
-position = Vector2(2034, 77)
+position = Vector2(57, 226)
 
 [node name="RigidBody2D2" parent="." instance=ExtResource("9_2cj05")]
 position = Vector2(1042, -22)
 
 [node name="WindCharacter" parent="." instance=ExtResource("10_lghra")]
-position = Vector2(1863, 104)
+position = Vector2(-46, 239)
 
 [node name="Camera2D" type="Camera2D" parent="WindCharacter"]
 zoom = Vector2(1.2, 1.2)
@@ -729,3 +735,26 @@ position = Vector2(1780, 158)
 
 [node name="Breakable_Wall" parent="." instance=ExtResource("12_dxkcc")]
 position = Vector2(2339, 171)
+
+[node name="ActivationArea" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 25
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationArea"]
+position = Vector2(-136, 245)
+shape = SubResource("RectangleShape2D_n3o1y")
+
+[node name="ActivationWall" type="CharacterBody2D" parent="."]
+position = Vector2(215, 225)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ActivationWall"]
+scale = Vector2(0.160002, 0.76)
+texture = ExtResource("13_ruhe3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivationWall"]
+scale = Vector2(1, 4.8)
+shape = SubResource("RectangleShape2D_h8kbk")
+
+[connection signal="body_entered" from="ActivationArea" to="." method="_on_activation_area_body_entered"]
+[connection signal="body_exited" from="ActivationArea" to="." method="_on_activation_area_body_exited"]
