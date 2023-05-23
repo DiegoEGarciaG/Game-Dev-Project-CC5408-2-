@@ -18,14 +18,14 @@ texture = ExtResource("2_u0s0u")
 3:3/0/terrain = 4
 3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:3/0/physics_layer_0/angular_velocity = 0.0
-3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(4, -4, 8, -8, 8, 8, -8, 8)
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, 7, -8)
 3:3/0/terrains_peering_bit/bottom_left_corner = 4
 3:3/0/terrains_peering_bit/top_right_corner = 4
 4:3/0 = 0
 4:3/0/terrain_set = 0
 4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:3/0/physics_layer_0/angular_velocity = 0.0
-4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -7, 8, -8, 8, 8, -8, 8)
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, 8, -8, 8, -8, -8)
 4:3/0/terrains_peering_bit/right_side = 4
 4:3/0/terrains_peering_bit/bottom_side = 4
 4:3/0/terrains_peering_bit/left_side = 4
@@ -427,10 +427,10 @@ layer_1/tile_data = PackedInt32Array(1966054, 3, 3, 1900518, 3, 2, 1834982, 3, 2
 [node name="winds" type="Node2D" parent="."]
 
 [node name="WindCharacter" parent="." instance=ExtResource("2_ihstl")]
-position = Vector2(-121, 412)
+position = Vector2(707, 412)
 
 [node name="HookCharacter" parent="." instance=ExtResource("8_duekf")]
-position = Vector2(-26.0001, 411)
+position = Vector2(802, 411)
 
 [node name="FollowCamera" parent="." instance=ExtResource("7_by7t6")]
 position = Vector2(165, 332)
