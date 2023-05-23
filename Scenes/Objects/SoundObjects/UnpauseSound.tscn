@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bha6i57rsb7o"]
+
+[ext_resource type="AudioStream" uid="uid://cglxywbpjg28e" path="res://Assets/Sounds/Unpause_04.wav" id="1_niq4a"]
+
+[node name="UnpauseSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_niq4a")
+volume_db = -10.0

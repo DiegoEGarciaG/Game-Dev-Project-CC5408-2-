@@ -9,8 +9,10 @@ const SLOW_FALL_FACTOR = 0.9
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-	
+########### SOUNDS ###################
+@onready var jump_sound = $JumpSound
 
+######################################
 
 @onready var animation_player = $AnimationPlayer
 @onready var canon = $Pivot/Canon
@@ -59,6 +61,7 @@ func _physics_process(delta):
 
 	################## Handle Jump and Slower Fall ###########################
 	if Input.is_action_just_pressed("KEY_JUMP") and is_on_floor():
+		jump_sound.play(0.0)
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("KEY_JUMP") and velocity.y > 0:
 		velocity.y *= SLOW_FALL_FACTOR

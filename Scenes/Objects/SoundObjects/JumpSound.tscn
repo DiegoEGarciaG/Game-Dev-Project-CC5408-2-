@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8osqq5g624wt"]
+
+[ext_resource type="AudioStream" uid="uid://d37d2wgwuis6g" path="res://Assets/Sounds/Jump.wav" id="1_6b43f"]
+
+[node name="JumpSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_6b43f")
+volume_db = -30.0

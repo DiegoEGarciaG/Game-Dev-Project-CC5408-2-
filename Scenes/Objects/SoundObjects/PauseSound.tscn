@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm3x8ol7r67aw"]
+
+[ext_resource type="AudioStream" uid="uid://c86po2x3j3c5d" path="res://Assets/Sounds/Pause.wav" id="1_q33xp"]
+
+[node name="PauseSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_q33xp")
+volume_db = -10.0

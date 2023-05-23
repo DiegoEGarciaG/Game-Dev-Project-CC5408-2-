@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhxwtmtc6euj0"]
+
+[ext_resource type="AudioStream" uid="uid://dvqwki5as68f7" path="res://Assets/Sounds/Confirm.wav" id="1_b7asq"]
+
+[node name="PressedButtonSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_b7asq")
+volume_db = -10.0

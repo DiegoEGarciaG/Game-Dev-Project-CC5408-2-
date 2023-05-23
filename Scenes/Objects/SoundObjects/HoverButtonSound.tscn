@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://byjdsncifff0r"]
+
+[ext_resource type="AudioStream" uid="uid://b2yuu58xip4i0" path="res://Assets/Sounds/Hover.wav" id="1_mg7so"]
+
+[node name="HoverButtonSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_mg7so")
+volume_db = -10.0

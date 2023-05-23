@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://q8jp7eq2amp1"]
+[gd_scene load_steps=6 format=3 uid="uid://q8jp7eq2amp1"]
 
 [ext_resource type="Script" path="res://Scenes/menus/pause.gd" id="1_xk2hr"]
+[ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="2_vb1ch"]
+[ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="3_2oo6p"]
+[ext_resource type="PackedScene" uid="uid://cm3x8ol7r67aw" path="res://Scenes/Objects/SoundObjects/PauseSound.tscn" id="4_j4qhh"]
+[ext_resource type="PackedScene" uid="uid://bha6i57rsb7o" path="res://Scenes/Objects/SoundObjects/UnpauseSound.tscn" id="5_t6m60"]
 
 [node name="MarginContainer" type="MarginContainer"]
 process_mode = 3
@@ -62,3 +66,18 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Main Menu
 "
+
+[node name="PressedButtonSound" parent="." instance=ExtResource("2_vb1ch")]
+
+[node name="HoverButtonSound" parent="." instance=ExtResource("3_2oo6p")]
+
+[node name="PauseSound" parent="." instance=ExtResource("4_j4qhh")]
+
+[node name="UnpauseSound" parent="." instance=ExtResource("5_t6m60")]
+
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/Main Menu" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Main Menu" to="." method="_on_button_pressed"]

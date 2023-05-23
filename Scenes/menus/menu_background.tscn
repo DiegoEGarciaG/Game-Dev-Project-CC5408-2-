@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd87caookt5ci"]
+[gd_scene load_steps=7 format=3 uid="uid://dd87caookt5ci"]
 
 [ext_resource type="Texture2D" uid="uid://0e75w6amc6xm" path="res://Assets/Menus/background_0.png" id="1_5baiw"]
 [ext_resource type="Script" path="res://Scenes/menus/menu_background.gd" id="1_npl3c"]
+[ext_resource type="PackedScene" uid="uid://bmjixccdgpnb0" path="res://Scenes/Objects/SoundObjects/MenuTheme.tscn" id="3_r0dkk"]
+[ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="4_ev04l"]
+[ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="5_jgk2i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f670k"]
 font_size = 18
@@ -65,3 +68,16 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Exit"
+
+[node name="MenuTheme" parent="." instance=ExtResource("3_r0dkk")]
+
+[node name="PressedButtonSound" parent="." instance=ExtResource("4_ev04l")]
+
+[node name="HoverButtonSound" parent="." instance=ExtResource("5_jgk2i")]
+
+[connection signal="mouse_entered" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_button_pressed"]
