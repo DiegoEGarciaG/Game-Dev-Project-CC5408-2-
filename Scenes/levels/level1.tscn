@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://caysqhjvw1pbi"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level1.gd" id="1_t4eey"]
-[ext_resource type="PackedScene" uid="uid://kfjpocuygc5f" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="2_ihstl"]
+[ext_resource type="PackedScene" uid="uid://bq8j4q14fb00d" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="2_ihstl"]
 [ext_resource type="Texture2D" uid="uid://dh5bmlglwq0m3" path="res://Assets/Maps/KnoblePersona/Stairs.png" id="2_u0s0u"]
 [ext_resource type="Texture2D" uid="uid://ddpxod3w5qiis" path="res://Assets/Maps/KnoblePersona/Steampunk Broken Brick Back.png" id="3_dafhk"]
 [ext_resource type="Texture2D" uid="uid://ct1p0ukds16wl" path="res://Assets/Maps/KnoblePersona/Steampunk Brick Back.png" id="4_erslf"]

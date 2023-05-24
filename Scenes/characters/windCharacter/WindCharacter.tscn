@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bq8j4q14fb00d"]
+[gd_scene load_steps=37 format=3 uid="uid://bq8j4q14fb00d"]
 
 [ext_resource type="Script" path="res://Scenes/characters/windCharacter/WindCharacter.gd" id="1_0d05c"]
 [ext_resource type="Texture2D" uid="uid://cxhijtdx8pfv3" path="res://Assets/charactersAssets/Aira/_female01-spritesheet.png" id="1_mn1hy"]
@@ -371,7 +371,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_uha51"]
 resource_name = "walk"
-length = 1.2
+length = 0.6
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -416,7 +416,7 @@ tracks/3/path = NodePath("Pivot/Sprite2D:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
@@ -503,12 +503,22 @@ graph_offset = Vector2(-192.247, -97.801)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_a1hdy"]
 
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_ayrev"]
+length = 15.0083
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_f183n"]
+length = 8.23508
+
+[sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_scjmo"]
+length = 8.23529
+
 [node name="WindCharacter" type="CharacterBody2D" groups=["camera", "player", "pushable"]]
 scale = Vector2(1.7, 1.799)
 collision_layer = 8
 collision_mask = 7
 input_pickable = true
-safe_margin = 0.4
+floor_max_angle = 1.07163
+safe_margin = 0.2
 script = ExtResource("1_0d05c")
 
 [node name="Pivot" type="Node2D" parent="."]
@@ -528,6 +538,7 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.00511)
+scale = Vector2(0.97647, 1)
 shape = SubResource("CapsuleShape2D_hew8t")
 
 [node name="Timer" type="Timer" parent="."]
@@ -539,5 +550,16 @@ active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_a1hdy")
 
 [node name="CD_Wind" type="Timer" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("SeparationRayShape2D_ayrev")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("SeparationRayShape2D_f183n")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("SeparationRayShape2D_scjmo")
 
 [connection signal="timeout" from="CD_Wind" to="." method="_on_cd_wind_timeout"]
