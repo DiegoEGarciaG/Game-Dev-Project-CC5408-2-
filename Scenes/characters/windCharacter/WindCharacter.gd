@@ -166,7 +166,7 @@ func _on_mouse_over():
 func _on_body_clicked():
 	var hookCharacter = get_parent().get_node_or_null("HookCharacter")
 	var vector_direccion = hookCharacter.global_position - self.global_position
-	self.velocity += vector_direccion.normalized() * 3800 + Vector2.UP * 150
+	self.velocity += vector_direccion.normalized() * 700
 
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and inRange:

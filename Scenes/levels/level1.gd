@@ -11,7 +11,7 @@ func _ready():
 func _process(_delta):
 
 	if state1 and state2:
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/menus/menu_background.tscn")
 			
 func _on_player_wind_cast(wind):
 	winds.add_child(wind)
