@@ -35,7 +35,6 @@ var wind_scene = preload("res://Scenes/characters/windCharacter/skill/wind.tscn"
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("RIGHT_CLICK"):
 		# We clicked the mouse -> shoot()
-		print(event.position)
 		$Chain.shoot(get_global_mouse_position() - global_position)
 	elif event.is_action_released("RIGHT_CLICK"):
 		# We released the mouse -> release()			

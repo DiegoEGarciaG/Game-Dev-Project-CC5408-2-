@@ -100,6 +100,7 @@ RIGHT_CLICK={
 2d_physics/layer_3="whip"
 2d_physics/layer_4="player"
 2d_physics/layer_5="moveable_obj"
+2d_physics/layer_6="HookThing"
 
 [rendering]
 

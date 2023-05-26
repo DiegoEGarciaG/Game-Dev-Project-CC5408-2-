@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp76nyf8y26nv"]
+
+[ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="1_n4ggk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vabfy"]
+
+[node name="HookThing" type="StaticBody2D"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vabfy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.14, 0.14)
+texture = ExtResource("1_n4ggk")
