@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bf3oslhrgtg6d" path="res://Scenes/Objects/Box.tscn" id="9_2cj05"]
 [ext_resource type="PackedScene" uid="uid://grm6xlghgon3" path="res://Scenes/characters/hookCharacter/HookCharacter.tscn" id="9_manye"]
 [ext_resource type="Texture2D" uid="uid://bnh0hwokbsvt4" path="res://Assets/Maps/KnoblePersona/Steampunk Blocks.png" id="9_nc8w2"]
-[ext_resource type="PackedScene" uid="uid://kfjpocuygc5f" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="10_lghra"]
+[ext_resource type="PackedScene" uid="uid://bq8j4q14fb00d" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="10_lghra"]
 [ext_resource type="PackedScene" uid="uid://bddon0hwgy0bj" path="res://Scenes/Objects/trampoline.tscn" id="12_24r58"]
 [ext_resource type="PackedScene" uid="uid://dul7gyx1rr8nt" path="res://Scenes/Objects/Breakable_Wall.tscn" id="12_dxkcc"]
 [ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="13_ruhe3"]
