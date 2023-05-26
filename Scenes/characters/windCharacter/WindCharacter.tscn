@@ -499,7 +499,7 @@ states/land/position = Vector2(776.738, -81)
 states/walk/node = SubResource("AnimationNodeAnimation_egcxv")
 states/walk/position = Vector2(707.738, 121)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_v4ib0"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_i0sq8"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_e6dhp"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_jhdax"), "jump", "going_up", SubResource("AnimationNodeStateMachineTransition_tnllm"), "going_down", "land", SubResource("AnimationNodeStateMachineTransition_bt2ff"), "land", "walk", SubResource("AnimationNodeStateMachineTransition_0ft6h"), "going_up", "going_down", SubResource("AnimationNodeStateMachineTransition_pjnd1"), "walk", "going_down", SubResource("AnimationNodeStateMachineTransition_sx14w"), "idle", "going_down", SubResource("AnimationNodeStateMachineTransition_y2g5j"), "walk", "jump", SubResource("AnimationNodeStateMachineTransition_0570q"), "land", "idle", SubResource("AnimationNodeStateMachineTransition_kepnv")]
-graph_offset = Vector2(-192.247, -97.801)
+graph_offset = Vector2(-192.247, -26.6899)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_a1hdy"]
 
@@ -527,6 +527,7 @@ script = ExtResource("1_0d05c")
 texture = ExtResource("1_mn1hy")
 hframes = 6
 vframes = 5
+frame = 3
 
 [node name="Canon" type="Node2D" parent="Pivot"]
 position = Vector2(18, 0)
@@ -546,7 +547,6 @@ shape = SubResource("CapsuleShape2D_hew8t")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_ujgqm")
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource("AnimationNodeStateMachinePlayback_a1hdy")
 
 [node name="CD_Wind" type="Timer" parent="."]

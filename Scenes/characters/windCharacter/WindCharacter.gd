@@ -15,8 +15,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player = $AnimationPlayer
 @onready var canon = $Pivot/Canon
 @onready var pivot = $Pivot
+# Animation variables
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
+
 # on-wind movement
 var is_on_wind_area = false
 var wind_vector = Vector2.ZERO

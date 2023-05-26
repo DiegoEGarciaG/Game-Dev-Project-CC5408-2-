@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var speed := 100
+@export var speed := 140
 var movement_vector := Vector2(0,-1)
 
 var player = preload("res://Scenes/characters/windCharacter/WindCharacter.tscn")
@@ -15,7 +15,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.has_method("wind_movement_ch"):
-		body.wind_movement_ch(200*movement_vector.rotated(rotation))
+		body.wind_movement_ch(150*movement_vector.rotated(rotation))
 	elif body.is_in_group("pushable"):
 		body.apply_central_force(50000*movement_vector.rotated(rotation))
 	elif body.is_in_group("breakable_wall"):

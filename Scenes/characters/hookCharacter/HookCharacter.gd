@@ -13,6 +13,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player = $AnimationPlayer
 @onready var canon = $Pivot/Canon
 @onready var pivot = $Pivot
+# Animation variables
+@onready var animation_tree = $AnimationTree
+@onready var playback = animation_tree.get("parameters/playback")
 
 # on-wind movement
 var is_on_wind_area = false
@@ -27,28 +30,29 @@ var wind_scene = preload("res://Scenes/characters/windCharacter/skill/wind.tscn"
 func _process(_delta):
 	pass
 
+func _ready():
+	animation_tree.active = true
+	
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		velocity.y += (gravity + wind_vector.y*5) * delta
 
 	################## Handle Jump and Slower Fall ###########################
 	if Input.is_action_just_pressed("KEY_UP_HOOK") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	velocity.y += wind_vector.y
+	velocity.y += wind_vector.y*delta
 	################## END OF Handle Jump and Slower Fall ###########################	
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction_x = Input.get_axis("KEY_LEFT_HOOK", "KEY_RIGHT_HOOK")
 	if direction_x:
-		animation_player.play("walk")
 		pivot.scale.x = sign(direction_x)
-		velocity.x = move_toward(velocity.x, direction_x*SPEED, ACCELERATION*delta) + wind_vector.x
+		velocity.x = move_toward(velocity.x, direction_x*SPEED+ wind_vector.x, ACCELERATION*delta) 
 		vec.x = direction_x
 	else:
-		animation_player.play("idle")
-		velocity.x = move_toward(velocity.x, 0, SPEED) + wind_vector.x
+		velocity.x = move_toward(velocity.x, 0+ wind_vector.x, ACCELERATION*delta) 
 	
 	###########################		
 	# Trampoline	
@@ -57,6 +61,20 @@ func _physics_process(delta):
 	###########################
 	
 	move_and_slide()
+	
+	###########################	
+	#animation
+	if is_on_floor():
+		if abs(velocity.x) > 10:
+			playback.travel("walk")
+		else:
+			playback.travel("idle")
+	else:
+		if velocity.y < 0:
+			playback.start("going_up")
+		else:
+			playback.start("going_down")
+	###########################	
 
 func wind_movement_ch(wind_vec):
 	wind_vector = wind_vec
