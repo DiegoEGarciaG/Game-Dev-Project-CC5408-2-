@@ -9,6 +9,10 @@ var TRAMPOLINE_IMPULSE_B = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+# chain variables
+var chain_velocity := Vector2(0,0)
+const CHAIN_PULL = 65
+
 
 @onready var animation_player = $AnimationPlayer
 @onready var canon = $Pivot/Canon
@@ -27,8 +31,15 @@ var vec = Vector2(0,0)
 # Shooting wind
 var wind_scene = preload("res://Scenes/characters/windCharacter/skill/wind.tscn")
 
-func _process(_delta):
-	pass
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("RIGHT_CLICK"):
+		# We clicked the mouse -> shoot()
+		print(event.position)
+		$Chain.shoot(get_global_mouse_position() - global_position)
+	elif event.is_action_released("RIGHT_CLICK"):
+		# We released the mouse -> release()			
+		$Chain.release()
 
 func _ready():
 	animation_tree.active = true
@@ -53,6 +64,27 @@ func _physics_process(delta):
 		vec.x = direction_x
 	else:
 		velocity.x = move_toward(velocity.x, 0+ wind_vector.x, ACCELERATION*delta) 
+		
+		
+	if $Chain.hooked:
+		# `to_local($Chain.tip).normalized()` is the direction that the chain is pulling
+		var ch = to_local($Chain.tip)
+		var chain_len = ch.length()
+		if chain_len <= 1:
+			velocity *= 0.5
+			chain_velocity = Vector2.ZERO
+		else:
+			chain_velocity = ch.normalized() * CHAIN_PULL
+			if sign(chain_velocity.x) != sign(direction_x):
+				# if we are trying to walk in a different
+				# direction than the chain is pulling
+				# reduce its pull
+				chain_velocity.x *= 0.7
+	else:
+		# Not hooked -> no chain velocity
+		chain_velocity = Vector2(0,0)
+	velocity += chain_velocity
+
 	
 	###########################		
 	# Trampoline	

@@ -527,7 +527,6 @@ script = ExtResource("1_0d05c")
 texture = ExtResource("1_mn1hy")
 hframes = 6
 vframes = 5
-frame = 3
 
 [node name="Canon" type="Node2D" parent="Pivot"]
 position = Vector2(18, 0)
