@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpl6j8itxvyhc"]
+
+[ext_resource type="Texture2D" uid="uid://btgohiamyjcy" path="res://Assets/Maps/lvl1/Day/1.png" id="1_o2tc5"]
+[ext_resource type="Texture2D" uid="uid://cp5d2svsyb5dx" path="res://Assets/Maps/lvl1/Day/2.png" id="2_b8q3l"]
+[ext_resource type="Texture2D" uid="uid://et3ri7nj2a0d" path="res://Assets/Maps/lvl1/Day/3.png" id="3_4lc4c"]
+[ext_resource type="Texture2D" uid="uid://dgy1bm3yvx1jo" path="res://Assets/Maps/lvl1/Day/4.png" id="4_mojnn"]
+[ext_resource type="Texture2D" uid="uid://dafept673et77" path="res://Assets/Maps/lvl1/Day/5.png" id="5_vtcmf"]
+
+[node name="Level1_Bg" type="ParallaxBackground"]
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_o2tc5")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_b8q3l")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.01, 0.01)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_4lc4c")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.15, 0.05)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_mojnn")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 0.1)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_vtcmf")
+centered = false

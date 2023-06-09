@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dd87caookt5ci"]
 
-[ext_resource type="Texture2D" uid="uid://0e75w6amc6xm" path="res://Assets/Menus/background_0.png" id="1_5baiw"]
 [ext_resource type="Script" path="res://Scenes/menus/menu_background.gd" id="1_npl3c"]
+[ext_resource type="Texture2D" uid="uid://btfw1lqc3x5qt" path="res://Assets/Menus/background_glacial_mountains_lightened.png" id="2_lxedw"]
 [ext_resource type="PackedScene" uid="uid://bmjixccdgpnb0" path="res://Scenes/Objects/SoundObjects/MenuTheme.tscn" id="3_r0dkk"]
 [ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="4_ev04l"]
 [ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="5_jgk2i"]
@@ -17,9 +17,9 @@ script = ExtResource("1_npl3c")
 follow_viewport_enabled = true
 
 [node name="Background0" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(579.5, 326.375)
-scale = Vector2(4.03125, 3.62639)
-texture = ExtResource("1_5baiw")
+scale = Vector2(3, 3.133)
+texture = ExtResource("2_lxedw")
+centered = false
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Background0"]
 anchors_preset = 8
@@ -27,10 +27,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -215.0
-offset_top = -148.0
-offset_right = -73.0
-offset_bottom = -32.0
+offset_left = -71.0
+offset_top = -58.0
+offset_right = 71.0
+offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

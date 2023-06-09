@@ -1,8 +1,8 @@
 extends Node2D
 
 
-@onready var winds = $winds
-@onready var player = $WindCharacter
+@onready var winds = $PhysicObjs/winds
+@onready var player = $Players/WindCharacter
 
 func _ready():
 	player.connect("wind_cast", _on_player_wind_cast)

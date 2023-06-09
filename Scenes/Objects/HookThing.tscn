@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bp76nyf8y26nv"]
+[gd_scene load_steps=4 format=3 uid="uid://bp76nyf8y26nv"]
 
+[ext_resource type="Script" path="res://Scenes/Objects/HookThing.gd" id="1_1ny1f"]
 [ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="1_n4ggk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vabfy"]
@@ -7,6 +8,7 @@
 [node name="HookThing" type="StaticBody2D"]
 collision_layer = 32
 collision_mask = 0
+script = ExtResource("1_1ny1f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vabfy")

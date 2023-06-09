@@ -26,7 +26,7 @@ func _on_body_timer_timeout():
 	emit_signal("mouse_over")
 
 func _on_mouse_over():
-	var hookCharacter = get_parent().get_node_or_null("HookCharacter")
+	var hookCharacter = get_parent().get_parent().get_node_or_null("Players").get_node_or_null("HookCharacter")
 	if hookCharacter != null:
 		var distancia = self.global_transform.origin.distance_to(hookCharacter.global_transform.origin)
 		if(distancia < 350):
@@ -37,7 +37,7 @@ func _on_mouse_over():
 			inRange = false
 			
 func _on_body_clicked():
-	var hookCharacter = get_parent().get_node_or_null("HookCharacter")
+	var hookCharacter = get_parent().get_parent().get_node_or_null("Players").get_node_or_null("HookCharacter")
 	var vector_direccion = hookCharacter.global_position - self.global_position
 	apply_impulse(vector_direccion.normalized() * 800 + Vector2.UP * 150)
 

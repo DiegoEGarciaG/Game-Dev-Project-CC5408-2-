@@ -1,17 +1,25 @@
 extends Node2D
 
 
-@onready var winds = $winds
-@onready var player = $WindCharacter
+@onready var winds = $PhysicObjs/winds
+@onready var player = $Players/WindCharacter
+#Configuración de los limites de la cámara
+@onready var left_marker = $LeftMarker
+@onready var right_marker = $RightMarker
+@onready var follow_camera = $FollowCamera
+@onready var hook_thing_2 = $PhysicObjs/HookThing2
 
 func _ready():
 	preload("res://Scenes/characters/windCharacter/WindCharacter.tscn")
 	player.connect("wind_cast", _on_player_wind_cast)
+	follow_camera.limit_left = left_marker.global_position.x
+	follow_camera.limit_right = right_marker.global_position.x
+	hook_thing_2.collision_deac()
 	
 func _process(_delta):
 
 	if state1 and state2:
-		get_tree().change_scene_to_file("res://Scenes/menus/menu_background.tscn")
+		hook_thing_2.collision_acti()
 			
 func _on_player_wind_cast(wind):
 	winds.add_child(wind)
