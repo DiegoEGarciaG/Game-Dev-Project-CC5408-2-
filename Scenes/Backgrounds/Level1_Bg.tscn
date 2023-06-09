@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dafept673et77" path="res://Assets/Maps/lvl1/Day/5.png" id="5_vtcmf"]
 
 [node name="Level1_Bg" type="ParallaxBackground"]
+scale = Vector2(1.4, 1.4)
+transform = Transform2D(1.4, 0, 0, 1.4, 0, 0)
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
@@ -28,8 +30,8 @@ texture = ExtResource("2_b8q3l")
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.01, 0.01)
-motion_mirroring = Vector2(576, 0)
+motion_scale = Vector2(0.2, 0.02)
+motion_mirroring = Vector2(806.4, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
 scale = Vector2(2, 2)
@@ -37,8 +39,8 @@ texture = ExtResource("3_4lc4c")
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.15, 0.05)
-motion_mirroring = Vector2(576, 0)
+motion_scale = Vector2(0.2, 0.067)
+motion_mirroring = Vector2(806.4, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
 scale = Vector2(2, 2)
@@ -46,8 +48,8 @@ texture = ExtResource("4_mojnn")
 centered = false
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.3, 0.1)
-motion_mirroring = Vector2(576, 0)
+motion_scale = Vector2(0.4, 0.133)
+motion_mirroring = Vector2(806.4, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
 scale = Vector2(2, 2)
