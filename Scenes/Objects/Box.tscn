@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bf3oslhrgtg6d"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Box.gd" id="1_fuov5"]
-[ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="1_lhnbt"]
+[ext_resource type="Texture2D" uid="uid://cc31uxkaiwxui" path="res://Assets/ObjectAssets/Box.png" id="2_qnudu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5ojh"]
 size = Vector2(120, 116)
@@ -17,7 +17,8 @@ position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_v5ojh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, -5)
-texture = ExtResource("1_lhnbt")
+position = Vector2(-1.5, 0)
+scale = Vector2(2.87, 2.87)
+texture = ExtResource("2_qnudu")
 
 [node name="Timer" type="Timer" parent="."]
