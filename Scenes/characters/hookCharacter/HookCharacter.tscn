@@ -1,8 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://grm6xlghgon3"]
+[gd_scene load_steps=37 format=3 uid="uid://grm6xlghgon3"]
 
 [ext_resource type="Script" path="res://Scenes/characters/hookCharacter/HookCharacter.gd" id="1_p7ao2"]
 [ext_resource type="Texture2D" uid="uid://cfad7fgr1rbo8" path="res://Assets/charactersAssets/Grappel/male01_total.png" id="2_na1nx"]
 [ext_resource type="PackedScene" uid="uid://o1new7ueqel6" path="res://Scenes/characters/hookCharacter/skill/Chain.tscn" id="3_fg4rl"]
+[ext_resource type="Script" path="res://Scenes/characters/hookCharacter/skill/LeftChain.gd" id="4_7yuft"]
 
 [sub_resource type="Animation" id="Animation_4efyq"]
 length = 0.001
@@ -529,3 +530,6 @@ rotation = 1.5708
 shape = SubResource("SeparationRayShape2D_w0v2f")
 
 [node name="Chain" parent="." instance=ExtResource("3_fg4rl")]
+
+[node name="LeftChain" parent="." instance=ExtResource("3_fg4rl")]
+script = ExtResource("4_7yuft")

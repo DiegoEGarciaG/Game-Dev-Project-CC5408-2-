@@ -460,7 +460,7 @@ scale = Vector2(0.8, 0.8)
 
 [node name="winds" type="Node2D" parent="PhysicObjs"]
 
-[node name="HookThing" parent="PhysicObjs" instance=ExtResource("11_k3f4e")]
+[node name="HookThing" parent="PhysicObjs" groups=["bite"] instance=ExtResource("11_k3f4e")]
 
 [node name="HookThing2" parent="PhysicObjs" instance=ExtResource("11_k3f4e")]
 position = Vector2(153, -255)

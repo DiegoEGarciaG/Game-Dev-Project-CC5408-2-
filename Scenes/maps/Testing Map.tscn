@@ -736,10 +736,10 @@ shape = SubResource("RectangleShape2D_h8kbk")
 [node name="Players" type="Node2D" parent="."]
 
 [node name="HookCharacter" parent="Players" instance=ExtResource("9_manye")]
-position = Vector2(57, 226)
+position = Vector2(323, 209)
 
 [node name="WindCharacter" parent="Players" instance=ExtResource("10_lghra")]
-position = Vector2(-46, 239)
+position = Vector2(267, 128)
 
 [node name="Camera2D" type="Camera2D" parent="Players/WindCharacter"]
 zoom = Vector2(1.2, 1.2)
@@ -756,7 +756,7 @@ position = Vector2(1780, 158)
 position = Vector2(1074, 199)
 
 [node name="RigidBody2D2" parent="PhysicObjs" instance=ExtResource("9_2cj05")]
-position = Vector2(1042, -22)
+position = Vector2(755, 201)
 
 [node name="winds" type="Node2D" parent="PhysicObjs"]
 

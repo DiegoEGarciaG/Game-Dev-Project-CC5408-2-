@@ -7,6 +7,7 @@ var tip := Vector2(0,0)			# The global position the tip should be in
 								# connected to the player and thus all .position
 								# properties would get messed with when the player
 								# moves.
+var collisionResult = null
 
 const SPEED = 800	# The speed with which the chain moves
 var flying = false	# Whether the chain is moving through the air
@@ -21,6 +22,7 @@ func shoot(dir: Vector2) -> void:
 	
 # release() the chain
 func release() -> void:
+	collisionResult = null
 	extension = 0
 	flying = false	# Not flying anymore	
 	hooked = false	# Not attached anymore
@@ -45,7 +47,8 @@ func _physics_process(_delta: float) -> void:
 		extension += SPEED * _delta
 		if extension >= max_extension:
 			release()
-		if $Tip.move_and_collide(direction * SPEED * _delta):
+		collisionResult = $Tip.move_and_collide(direction * SPEED * _delta)	
+		if collisionResult:
 			hooked = true	# Got something!
 			flying = false	# Not flying anymore
 	tip = $Tip.global_position	# set `tip` as starting position for next frame

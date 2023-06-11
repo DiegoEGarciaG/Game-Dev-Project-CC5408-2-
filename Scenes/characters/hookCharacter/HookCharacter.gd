@@ -9,10 +9,20 @@ var TRAMPOLINE_IMPULSE_B = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-# chain variables
+########## chain variables
+var right_click_pressed = false
 var chain_velocity := Vector2(0,0)
 const CHAIN_PULL = 65
 
+@onready var left_chain = $LeftChain
+var left_click_pressed = false
+var pointToTrack = null
+var mouseStartPosition: Vector2
+var mouseEndPosition: Vector2
+var mouseStartTime: float
+var mouseEndTime: float
+
+######################
 
 @onready var animation_player = $AnimationPlayer
 @onready var canon = $Pivot/Canon
@@ -33,12 +43,28 @@ var wind_scene = preload("res://Scenes/characters/windCharacter/skill/wind.tscn"
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("RIGHT_CLICK"):
+#	if event is InputEventMouseMotion and event.relative != Vector2.ZERO:
+##		if event.speed >= 20:
+#			mouseStartPosition = event.position
+#			mouseStartTime = Time.get_ticks_usec() / 1000000.0
+#			mouseEndPosition = mouseStartPosition
+#			mouseEndTime = mouseStartTime
+	if event.is_action_pressed("RIGHT_CLICK") and !left_click_pressed:
 		# We clicked the mouse -> shoot()
+		right_click_pressed = true
 		$Chain.shoot(get_global_mouse_position() - global_position)
 	elif event.is_action_released("RIGHT_CLICK"):
-		# We released the mouse -> release()			
+		# We released the mouse -> release()	
+		right_click_pressed = false		
 		$Chain.release()
+	elif event.is_action_pressed("CLICK") and !right_click_pressed:
+		left_click_pressed = true
+		left_chain.shoot(get_global_mouse_position() - global_position)
+			
+	elif event.is_action_released("CLICK"):
+		left_click_pressed = false
+		left_chain.release()
+		pointToTrack = null
 
 func _ready():
 	animation_tree.active = true
@@ -83,6 +109,27 @@ func _physics_process(delta):
 		# Not hooked -> no chain velocity
 		chain_velocity = Vector2(0,0)
 	velocity += chain_velocity
+	
+	if left_chain.hooked:
+		var collisionObj = left_chain.collisionResult.get_collider()
+		if pointToTrack == null:
+			pointToTrack = left_chain.collisionResult.get_position()-collisionObj.global_transform.origin
+		mouseStartPosition = mouseEndPosition
+		mouseStartTime = mouseEndTime
+		mouseEndPosition = get_global_mouse_position()
+		mouseEndTime = Time.get_ticks_usec() / 1000000.0
+		var mouse_moves = process_mouse_movement()
+		if mouse_moves != null:
+				if mouse_moves[0] >= 50:
+					var ch = -1*to_local(left_chain.tip).normalized()
+					var dot_p = ch.dot(mouse_moves[1])
+					if dot_p > 0:
+						if collisionObj.is_in_group("bite"):
+							pass
+						elif collisionObj.is_in_group("pushable"):
+							collisionObj.apply_central_force(100*mouse_moves[0]*dot_p*mouse_moves[1])
+		var col_pos = collisionObj.to_global(pointToTrack)
+		left_chain.tip = col_pos 
 
 	
 	###########################		
@@ -127,3 +174,13 @@ func trampoline_impulse_out():
 	TRAMPOLINE_IMPULSE_B = false
 	
 ###########################
+
+func process_mouse_movement():
+	var motionVector = mouseEndPosition - mouseStartPosition
+	var motionTime = mouseEndTime - mouseStartTime
+	if motionVector.length_squared() > 0 and motionTime > 0:
+#		var motionSpeed = motionVector.length() / motionTime
+		var vel = motionVector.length()
+		var motionDirection = motionVector.normalized()
+		# Here you can check the direction of the motion and perform your desired action
+		return [vel, motionDirection]
