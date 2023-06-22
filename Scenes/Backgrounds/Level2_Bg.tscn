@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://bla75b1jw6nsx"]
+
+[ext_resource type="Texture2D" uid="uid://btgohiamyjcy" path="res://Assets/Maps/lvl1/Day/1.png" id="1_vy1vl"]
+[ext_resource type="Texture2D" uid="uid://cp5d2svsyb5dx" path="res://Assets/Maps/lvl1/Day/2.png" id="2_18aew"]
+[ext_resource type="Texture2D" uid="uid://et3ri7nj2a0d" path="res://Assets/Maps/lvl1/Day/3.png" id="3_47kob"]
+[ext_resource type="Texture2D" uid="uid://dgy1bm3yvx1jo" path="res://Assets/Maps/lvl1/Day/4.png" id="4_mpgdy"]
+[ext_resource type="Texture2D" uid="uid://dafept673et77" path="res://Assets/Maps/lvl1/Day/5.png" id="5_wdc4s"]
+
+[node name="Level2_Bg" type="ParallaxBackground"]
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+scale = Vector2(2, 2)
+texture = ExtResource("1_vy1vl")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_18aew")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.02)
+motion_mirroring = Vector2(806.4, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_47kob")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.2, 0.067)
+motion_mirroring = Vector2(806.4, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_mpgdy")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.4, 0.133)
+motion_mirroring = Vector2(806.4, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_wdc4s")
+centered = false
