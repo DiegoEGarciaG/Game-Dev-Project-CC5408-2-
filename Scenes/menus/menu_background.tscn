@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dd87caookt5ci"]
+[gd_scene load_steps=8 format=3 uid="uid://dd87caookt5ci"]
 
 [ext_resource type="Script" path="res://Scenes/menus/menu_background.gd" id="1_npl3c"]
 [ext_resource type="Texture2D" uid="uid://btfw1lqc3x5qt" path="res://Assets/Menus/background_glacial_mountains_lightened.png" id="2_lxedw"]
+[ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="3_ps0p8"]
 [ext_resource type="PackedScene" uid="uid://bmjixccdgpnb0" path="res://Scenes/Objects/SoundObjects/MenuTheme.tscn" id="3_r0dkk"]
 [ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="4_ev04l"]
 [ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="5_jgk2i"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_f670k"]
-font_size = 18
+[sub_resource type="LabelSettings" id="LabelSettings_arav3"]
+font = ExtResource("3_ps0p8")
+font_size = 25
 
 [node name="MenuBackground" type="PanelContainer"]
 visible = false
@@ -21,52 +23,63 @@ scale = Vector2(3, 3.133)
 texture = ExtResource("2_lxedw")
 centered = false
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Background0"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -71.0
-offset_top = -58.0
-offset_right = 71.0
-offset_bottom = 58.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Background0/PanelContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Background0/PanelContainer/MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(400, 400)
 layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Zephyr's Reach"
-label_settings = SubResource("LabelSettings_f670k")
+label_settings = SubResource("LabelSettings_arav3")
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Play" type="Button" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 50
 text = "Play"
 
-[node name="Settings" type="Button" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Settings" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 50
 text = "Settings"
 
-[node name="Exit" type="Button" parent="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 50
 text = "Exit"
 
 [node name="MenuTheme" parent="." instance=ExtResource("3_r0dkk")]
@@ -75,9 +88,9 @@ text = "Exit"
 
 [node name="HoverButtonSound" parent="." instance=ExtResource("5_jgk2i")]
 
-[connection signal="mouse_entered" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Background0/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_button_pressed"]
