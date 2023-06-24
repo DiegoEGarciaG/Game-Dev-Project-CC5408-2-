@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://caysqhjvw1pbi"]
+[gd_scene load_steps=23 format=3 uid="uid://caysqhjvw1pbi"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level1.gd" id="1_t4eey"]
 [ext_resource type="PackedScene" uid="uid://bq8j4q14fb00d" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="2_ihstl"]
@@ -13,6 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://bp76nyf8y26nv" path="res://Scenes/Objects/HookThing.tscn" id="11_k3f4e"]
 [ext_resource type="PackedScene" uid="uid://dpl6j8itxvyhc" path="res://Scenes/Backgrounds/Level1_Bg.tscn" id="12_h3px3"]
 [ext_resource type="PackedScene" uid="uid://cgiwcc7gqrfy0" path="res://Scenes/Objects/Platforms/platform_owc_d.tscn" id="13_hfnev"]
+[ext_resource type="Texture2D" uid="uid://lyedgbo5dt7e" path="res://Assets/ObjectAssets/grappel_area.png" id="14_fqx2d"]
+[ext_resource type="Texture2D" uid="uid://b5f6tr3cwgspq" path="res://Assets/ObjectAssets/aira_area.png" id="15_kpaaj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nw7v"]
 texture = ExtResource("2_u0s0u")
@@ -496,6 +498,9 @@ collision_mask = 8
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_p6bj8")
 
+[node name="Sprite2D" type="Sprite2D" parent="Areas/GrappelsWin/CollisionShape2D"]
+texture = ExtResource("14_fqx2d")
+
 [node name="AirasWin" type="Area2D" parent="Areas"]
 position = Vector2(959, -635)
 collision_layer = 8
@@ -504,6 +509,9 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/AirasWin"]
 position = Vector2(-6, 1)
 shape = SubResource("RectangleShape2D_p6bj8")
+
+[node name="Sprite2D" type="Sprite2D" parent="Areas/AirasWin/CollisionShape2D"]
+texture = ExtResource("15_kpaaj")
 
 [node name="LeftMarker" type="Marker2D" parent="."]
 position = Vector2(-412, 45)
