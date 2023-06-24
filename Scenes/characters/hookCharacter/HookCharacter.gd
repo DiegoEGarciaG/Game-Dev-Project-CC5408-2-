@@ -14,7 +14,10 @@ var right_click_pressed = false
 var chain_velocity := Vector2(0,0)
 const CHAIN_PULL = 65
 
-@onready var left_chain = $LeftChain
+
+@onready var left_chain = $Pivot/LeftChain
+@onready var chain = $Pivot/Chain
+
 var left_click_pressed = false
 var pointToTrack = null
 var mouseStartPosition: Vector2
@@ -52,11 +55,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("RIGHT_CLICK") and !left_click_pressed:
 		# We clicked the mouse -> shoot()
 		right_click_pressed = true
-		$Chain.shoot(get_global_mouse_position() - global_position)
+		chain.shoot(get_global_mouse_position() - global_position)
 	elif event.is_action_released("RIGHT_CLICK"):
 		# We released the mouse -> release()	
 		right_click_pressed = false		
-		$Chain.release()
+		chain.release()
 	elif event.is_action_pressed("CLICK") and !right_click_pressed:
 		left_click_pressed = true
 		left_chain.shoot(get_global_mouse_position() - global_position)
@@ -91,9 +94,9 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0+ wind_vector.x, ACCELERATION*delta) 
 		
 		
-	if $Chain.hooked:
-		# `to_local($Chain.tip).normalized()` is the direction that the chain is pulling
-		var ch = to_local($Chain.tip)
+	if chain.hooked:
+		# `to_local(chain.tip).normalized()` is the direction that the chain is pulling
+		var ch = to_local(chain.tip)
 		var chain_len = ch.length()
 		if chain_len <= 1:
 			velocity *= 0.5
@@ -124,8 +127,8 @@ func _physics_process(delta):
 					var ch = -1*to_local(left_chain.tip).normalized()
 					var dot_p = ch.dot(mouse_moves[1])
 					if dot_p > 0:
-						if collisionObj.is_in_group("bite"):
-							pass
+						if collisionObj.is_in_group("player"):
+							print("hola")
 						elif collisionObj.is_in_group("pushable"):
 							collisionObj.apply_central_force(100*mouse_moves[0]*dot_p*mouse_moves[1])
 		var col_pos = collisionObj.to_global(pointToTrack)

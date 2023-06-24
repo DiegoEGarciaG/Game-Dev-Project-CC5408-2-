@@ -692,7 +692,6 @@ size = Vector2(60, 54)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8kbk"]
 
 [node name="Testing Map" type="Node2D"]
-position = Vector2(-1, 0)
 script = ExtResource("1_owwyp")
 
 [node name="Physic elements 1" type="TileMap" parent="." groups=["wall"]]

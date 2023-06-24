@@ -502,6 +502,15 @@ frame = 21
 [node name="Canon" type="Node2D" parent="Pivot"]
 position = Vector2(18, 0)
 
+[node name="LeftChain" parent="Pivot" instance=ExtResource("3_fg4rl")]
+position = Vector2(13.8235, -2.01022)
+scale = Vector2(0.35, 0.35)
+script = ExtResource("4_7yuft")
+
+[node name="Chain" parent="Pivot" instance=ExtResource("3_fg4rl")]
+position = Vector2(13.2919, -1.50767)
+scale = Vector2(0.35, 0.35)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_68kpx")
@@ -528,8 +537,3 @@ shape = SubResource("SeparationRayShape2D_2gt81")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("SeparationRayShape2D_w0v2f")
-
-[node name="Chain" parent="." instance=ExtResource("3_fg4rl")]
-
-[node name="LeftChain" parent="." instance=ExtResource("3_fg4rl")]
-script = ExtResource("4_7yuft")

@@ -20,7 +20,7 @@ region_rect = Rect2(0, 0, 16, 360)
 
 [node name="Tip" type="CharacterBody2D" parent="."]
 collision_layer = 0
-collision_mask = 33
+collision_mask = 41
 
 [node name="Hook" type="Sprite2D" parent="Tip"]
 texture = ExtResource("3_hevo3")
