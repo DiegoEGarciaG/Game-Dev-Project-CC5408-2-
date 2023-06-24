@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://fh5bqsk3pno2"]
+
+[node name="Level_1_text" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+text = "Welcome, adventurers!!!
+Who I am does not matter now, you can think of me as a mere spectator of your adventures, or even as a guide.
+Both of you Aira and Grappel have been through a lot just to arrive here at Valparadise.
+After all I have heard of you but why are you not showing off the skills everyone speak so much about.
+Aira please, use A,D, Space bar to move. Keep jumping while you fall to do it slower. Shoot your air with R.
+To aim while standing steady use shift and A,S,D,W.
+Grappel, please move with Left, Right, Up, Down keys, aim with the mouse and shoot your hook.
+Use the left click to move other objects and right click to move yourself to the ones you can attach your hook.
+"
+fit_content = true
+tab_size = 5

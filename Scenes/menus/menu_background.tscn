@@ -12,7 +12,6 @@ font = ExtResource("3_ps0p8")
 font_size = 25
 
 [node name="MenuBackground" type="PanelContainer"]
-visible = false
 script = ExtResource("1_npl3c")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
