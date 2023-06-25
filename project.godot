@@ -101,6 +101,7 @@ RIGHT_CLICK={
 2d_physics/layer_4="player"
 2d_physics/layer_5="moveable_obj"
 2d_physics/layer_6="HookThing"
+2d_physics/layer_7="hook_player"
 
 [rendering]
 
