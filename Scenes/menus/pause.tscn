@@ -73,12 +73,16 @@ text = "Main Menu
 "
 
 [node name="PressedButtonSound" parent="." instance=ExtResource("2_vb1ch")]
+bus = &"SoundEffects"
 
 [node name="HoverButtonSound" parent="." instance=ExtResource("3_2oo6p")]
+bus = &"SoundEffects"
 
 [node name="PauseSound" parent="." instance=ExtResource("4_j4qhh")]
+bus = &"SoundEffects"
 
 [node name="UnpauseSound" parent="." instance=ExtResource("5_t6m60")]
+bus = &"SoundEffects"
 
 [connection signal="mouse_entered" from="PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_button_pressed"]

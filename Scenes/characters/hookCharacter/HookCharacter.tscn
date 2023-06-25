@@ -504,12 +504,10 @@ position = Vector2(18, 0)
 
 [node name="LeftChain" parent="Pivot" instance=ExtResource("3_fg4rl")]
 position = Vector2(13.8235, -2.01022)
-scale = Vector2(0.35, 0.35)
 script = ExtResource("4_7yuft")
 
 [node name="Chain" parent="Pivot" instance=ExtResource("3_fg4rl")]
 position = Vector2(13.2919, -1.50767)
-scale = Vector2(0.35, 0.35)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

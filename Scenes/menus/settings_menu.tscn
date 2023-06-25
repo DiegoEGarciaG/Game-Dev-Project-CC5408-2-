@@ -7,18 +7,18 @@
 [ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="5_466kn"]
 [ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="6_57m1d"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_arav3"]
+[sub_resource type="LabelSettings" id="LabelSettings_64rkf"]
 font = ExtResource("3_ix4q6")
 font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_wjxyh"]
 font = ExtResource("3_ix4q6")
-font_size = 20
 
-[node name="settings_menu" type="Node2D"]
+[node name="settings_menu" type="MarginContainer"]
 script = ExtResource("1_k7okj")
 
 [node name="MenuBackground" type="PanelContainer" parent="."]
+layout_mode = 2
 
 [node name="CanvasLayer" type="CanvasLayer" parent="MenuBackground"]
 follow_viewport_enabled = true
@@ -61,27 +61,72 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Settings"
-label_settings = SubResource("LabelSettings_arav3")
+label_settings = SubResource("LabelSettings_64rkf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolume" type="Label" parent="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Global Volume"
+label_settings = SubResource("LabelSettings_wjxyh")
+vertical_alignment = 1
+
+[node name="HSlider2" type="HSlider" parent="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(35, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+tick_count = 11
+
+[node name="Label2" type="Label" parent="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "50%"
+label_settings = SubResource("LabelSettings_wjxyh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Volume" type="Label" parent="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Volume"
+text = "Music Volume"
 label_settings = SubResource("LabelSettings_wjxyh")
 vertical_alignment = 1
 
 [node name="HSlider" type="HSlider" parent="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(35, 50)
 layout_mode = 2
-step = 10.0
+max_value = 1.0
+step = 0.1
 tick_count = 11
 
 [node name="Label" type="Label" parent="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Volume"
+text = "50%"
+label_settings = SubResource("LabelSettings_wjxyh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundEffects" type="Label" parent="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Sound Effect Volume"
+label_settings = SubResource("LabelSettings_wjxyh")
+vertical_alignment = 1
+
+[node name="HSlider3" type="HSlider" parent="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(35, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+tick_count = 11
+
+[node name="SoundEffectsPcnt" type="Label" parent="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "50%"
 label_settings = SubResource("LabelSettings_wjxyh")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -96,9 +141,15 @@ text = "Window sized"
 
 [node name="MenuTheme" parent="MenuBackground" instance=ExtResource("4_kjc7n")]
 volume_db = -44.304
+bus = &"Music"
 
 [node name="PressedButtonSound" parent="MenuBackground" instance=ExtResource("5_466kn")]
+bus = &"SoundEffects"
 
 [node name="HoverButtonSound" parent="MenuBackground" instance=ExtResource("6_57m1d")]
+bus = &"SoundEffects"
 
+[connection signal="value_changed" from="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[connection signal="value_changed" from="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HSlider3" to="." method="_on_h_slider_3_value_changed"]
 [connection signal="pressed" from="MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/WindowSized" to="." method="_on_window_sized_pressed"]

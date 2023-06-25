@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd87caookt5ci"]
+[gd_scene load_steps=13 format=3 uid="uid://dd87caookt5ci"]
 
 [ext_resource type="Script" path="res://Scenes/menus/menu_background.gd" id="1_npl3c"]
 [ext_resource type="Texture2D" uid="uid://btfw1lqc3x5qt" path="res://Assets/Menus/background_glacial_mountains_lightened.png" id="2_lxedw"]
 [ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="3_ps0p8"]
 [ext_resource type="PackedScene" uid="uid://bmjixccdgpnb0" path="res://Scenes/Objects/SoundObjects/MenuTheme.tscn" id="3_r0dkk"]
+[ext_resource type="Script" path="res://Scenes/menus/settings_menu.gd" id="4_cv2go"]
 [ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="4_ev04l"]
 [ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="5_jgk2i"]
 
@@ -18,6 +19,13 @@ font_size = 25
 [sub_resource type="LabelSettings" id="LabelSettings_xjg8i"]
 font = ExtResource("3_ps0p8")
 font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_64rkf"]
+font = ExtResource("3_ps0p8")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_wjxyh"]
+font = ExtResource("3_ps0p8")
 
 [node name="MenuBackground" type="PanelContainer"]
 script = ExtResource("1_npl3c")
@@ -169,11 +177,151 @@ theme_override_fonts/font = ExtResource("3_ps0p8")
 theme_override_font_sizes/font_size = 20
 text = "Go Back"
 
+[node name="settings_menu" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+script = ExtResource("4_cv2go")
+
+[node name="MenuBackground" type="PanelContainer" parent="CanvasLayer/settings_menu"]
+visible = false
+layout_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer/settings_menu/MenuBackground"]
+follow_viewport_enabled = true
+
+[node name="Background0" type="Sprite2D" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer"]
+scale = Vector2(3, 3.133)
+texture = ExtResource("2_lxedw")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+label_settings = SubResource("LabelSettings_64rkf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MasterVolume" type="Label" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Global Volume"
+label_settings = SubResource("LabelSettings_wjxyh")
+vertical_alignment = 1
+
+[node name="HSlider2" type="HSlider" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(35, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+tick_count = 11
+
+[node name="Label2" type="Label" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "50%"
+label_settings = SubResource("LabelSettings_wjxyh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Volume" type="Label" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Music Volume"
+label_settings = SubResource("LabelSettings_wjxyh")
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(35, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+tick_count = 11
+
+[node name="Label" type="Label" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "50%"
+label_settings = SubResource("LabelSettings_wjxyh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundEffects" type="Label" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Sound Effect Volume"
+label_settings = SubResource("LabelSettings_wjxyh")
+vertical_alignment = 1
+
+[node name="HSlider3" type="HSlider" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(35, 50)
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+tick_count = 11
+
+[node name="SoundEffectsPcnt" type="Label" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "50%"
+label_settings = SubResource("LabelSettings_wjxyh")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WindowSized" type="CheckButton" parent="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ps0p8")
+theme_override_font_sizes/font_size = 20
+text = "Window sized"
+
+[node name="MenuTheme" parent="CanvasLayer/settings_menu/MenuBackground" instance=ExtResource("3_r0dkk")]
+volume_db = -44.304
+bus = &"Music"
+
+[node name="PressedButtonSound" parent="CanvasLayer/settings_menu/MenuBackground" instance=ExtResource("4_ev04l")]
+bus = &"SoundEffects"
+
+[node name="HoverButtonSound" parent="CanvasLayer/settings_menu/MenuBackground" instance=ExtResource("5_jgk2i")]
+bus = &"SoundEffects"
+
 [node name="MenuTheme" parent="." instance=ExtResource("3_r0dkk")]
+bus = &"Music"
 
 [node name="PressedButtonSound" parent="." instance=ExtResource("4_ev04l")]
+bus = &"SoundEffects"
 
 [node name="HoverButtonSound" parent="." instance=ExtResource("5_jgk2i")]
+bus = &"SoundEffects"
 
 [connection signal="mouse_entered" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_button_pressed"]
@@ -183,3 +331,7 @@ text = "Go Back"
 [connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings/PanelContainer/MarginContainer/VBoxContainer/WindowSized" to="." method="_on_window_sized_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings/PanelContainer/MarginContainer/VBoxContainer/Back" to="." method="_on_button_pressed"]
+[connection signal="value_changed" from="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HSlider2" to="CanvasLayer/settings_menu" method="_on_h_slider_2_value_changed" flags=18]
+[connection signal="value_changed" from="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HSlider" to="CanvasLayer/settings_menu" method="_on_h_slider_value_changed" flags=18]
+[connection signal="value_changed" from="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HSlider3" to="CanvasLayer/settings_menu" method="_on_h_slider_3_value_changed" flags=18]
+[connection signal="pressed" from="CanvasLayer/settings_menu/MenuBackground/CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/WindowSized" to="CanvasLayer/settings_menu" method="_on_window_sized_pressed" flags=18]

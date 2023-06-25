@@ -11,13 +11,16 @@ extends PanelContainer
 @onready var label = %Label
 @onready var window_sized = %WindowSized
 @onready var back = %Back
+
 # Variables to change visibility between the settings screen and main screen
 @onready var main_screen = $CanvasLayer/MarginContainer
 @onready var settings_screen = $CanvasLayer/Settings
+@onready var settings_menu = $CanvasLayer/settings_menu
 
 var window_size = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	settings_menu.hide()
 	menu_theme.play(0.0)
 	play.pressed.connect(_on_play_pressed)
 	settings.pressed.connect(_on_settings_pressed)
