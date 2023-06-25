@@ -1,7 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6ail2v8rscx"]
+[gd_scene load_steps=8 format=3 uid="uid://b6ail2v8rscx"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/FollowCamera.gd" id="1_5f0ac"]
 [ext_resource type="PackedScene" uid="uid://q8jp7eq2amp1" path="res://Scenes/menus/pause.tscn" id="2_5fcer"]
+[ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="3_hqk6v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4fhb1"]
+font = ExtResource("3_hqk6v")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_1b0s3"]
+font = ExtResource("3_hqk6v")
+font_size = 20
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_tk3wa"]
 a = Vector2(1001, 543)
@@ -16,6 +25,87 @@ zoom = Vector2(0.6, 0.6)
 script = ExtResource("1_5f0ac")
 
 [node name="MarginContainer2" parent="." instance=ExtResource("2_5fcer")]
+
+[node name="Settings" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -215.0
+offset_top = -207.5
+offset_right = 215.0
+offset_bottom = 207.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="Settings"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Settings/PanelContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/PanelContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="Settings/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+label_settings = SubResource("LabelSettings_4fhb1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Volume" type="Label" parent="Settings/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Volume"
+label_settings = SubResource("LabelSettings_1b0s3")
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="Settings/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(35, 50)
+layout_mode = 2
+step = 10.0
+tick_count = 11
+
+[node name="Label" type="Label" parent="Settings/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Volume"
+label_settings = SubResource("LabelSettings_1b0s3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WindowSized" type="CheckButton" parent="Settings/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_direction = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hqk6v")
+theme_override_font_sizes/font_size = 20
+text = "Full Screen"
+
+[node name="Back" type="MenuButton" parent="Settings/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hqk6v")
+theme_override_font_sizes/font_size = 20
+text = "Go Back"
 
 [node name="CollisionSide2" type="StaticBody2D" parent="."]
 position = Vector2(-41, -2)

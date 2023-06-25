@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://q8jp7eq2amp1"]
+[gd_scene load_steps=7 format=3 uid="uid://q8jp7eq2amp1"]
 
 [ext_resource type="Script" path="res://Scenes/menus/pause.gd" id="1_xk2hr"]
+[ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="2_bar7b"]
 [ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="2_vb1ch"]
 [ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="3_2oo6p"]
 [ext_resource type="PackedScene" uid="uid://cm3x8ol7r67aw" path="res://Scenes/Objects/SoundObjects/PauseSound.tscn" id="4_j4qhh"]
@@ -40,7 +41,8 @@ layout_mode = 2
 [node name="Pause" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("2_bar7b")
+theme_override_font_sizes/font_size = 20
 text = "Pause"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -49,21 +51,24 @@ vertical_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("2_bar7b")
+theme_override_font_sizes/font_size = 20
 text = "Resume"
 
 [node name="Settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("2_bar7b")
+theme_override_font_sizes/font_size = 20
 text = "Settings"
 
 [node name="Main Menu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("2_bar7b")
+theme_override_font_sizes/font_size = 20
 text = "Main Menu
 "
 
