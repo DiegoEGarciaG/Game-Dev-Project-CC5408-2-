@@ -4,10 +4,10 @@ extends Node2D
 @onready var winds = $PhysicObjs/winds
 @onready var player = $Players/WindCharacter
 #Configuración de los limites de la cámara
-@onready var left_marker = $LeftMarker
-@onready var right_marker = $RightMarker
-@onready var bottom_marker = $BottomMarker
-@onready var follow_camera = $FollowCamera
+#@onready var left_marker = $LeftMarker
+#@onready var right_marker = $RightMarker
+#@onready var bottom_marker = $BottomMarker
+#@onready var follow_camera = $FollowCamera
 #Objetos a desactivar
 @onready var hook_thing_2 = $PhysicObjs/HookThing2
 @onready var grappels = $PhysicObjs/grappels
@@ -17,9 +17,9 @@ func _ready():
 	preload("res://Scenes/characters/windCharacter/WindCharacter.tscn")
 	player.connect("wind_cast", _on_player_wind_cast)
 	#Limites de la camara
-	follow_camera.limit_left = left_marker.global_position.x
-	follow_camera.limit_right = right_marker.global_position.x
-	follow_camera.limit_bottom = bottom_marker.global_position.y
+#	follow_camera.limit_left = left_marker.global_position.x
+#	follow_camera.limit_right = right_marker.global_position.x
+#	follow_camera.limit_bottom = bottom_marker.global_position.y
 	#Hacer invisibles e intocables ciertos elementos
 	hook_thing_2.collision_deac()
 	airas.collision_deac()
