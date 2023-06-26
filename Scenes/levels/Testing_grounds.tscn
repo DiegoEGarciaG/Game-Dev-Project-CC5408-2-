@@ -452,7 +452,4 @@ position = Vector2(447, -158)
 [node name="Box" parent="PhysicObjs" instance=ExtResource("9_7540k")]
 position = Vector2(2655, 101)
 
-[node name="Box2" parent="PhysicObjs" instance=ExtResource("9_7540k")]
-position = Vector2(652, 199)
-
 [node name="FollowCamera" parent="." instance=ExtResource("8_tod4t")]
