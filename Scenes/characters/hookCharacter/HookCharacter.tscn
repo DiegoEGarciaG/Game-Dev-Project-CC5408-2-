@@ -503,11 +503,11 @@ frame = 21
 position = Vector2(18, 0)
 
 [node name="LeftChain" parent="Pivot" instance=ExtResource("3_fg4rl")]
-position = Vector2(13.8235, -2.01022)
+position = Vector2(8.47033e-22, 2.14577e-06)
 script = ExtResource("4_7yuft")
 
 [node name="Chain" parent="Pivot" instance=ExtResource("3_fg4rl")]
-position = Vector2(13.2919, -1.50767)
+position = Vector2(3.8147e-05, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

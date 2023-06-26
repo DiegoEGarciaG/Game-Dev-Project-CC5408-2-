@@ -36,14 +36,6 @@ func _ready():
 	h_slider_3.value = initial_sfx_volume*h_slider_3.max_value
 
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	
-	pass
-		
-
-
 func _on_window_sized_pressed():
 	window_size = !window_size
 	if window_size:

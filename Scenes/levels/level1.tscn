@@ -496,8 +496,8 @@ shape = SubResource("RectangleShape2D_731ci")
 
 [node name="GrappelsWin" type="Area2D" parent="Areas"]
 position = Vector2(269, -631)
-collision_layer = 8
-collision_mask = 8
+collision_layer = 72
+collision_mask = 72
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/GrappelsWin"]
 position = Vector2(1, -2)
