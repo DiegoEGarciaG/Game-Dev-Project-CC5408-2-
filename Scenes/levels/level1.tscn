@@ -157,7 +157,6 @@ texture = ExtResource("4_erslf")
 1:0/0/terrains_peering_bit/right_side = 0
 2:0/0 = 0
 2:0/0/terrain_set = 0
-2:0/0/terrain = 0
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5, 8, -5, 8, 5, -8, 5)

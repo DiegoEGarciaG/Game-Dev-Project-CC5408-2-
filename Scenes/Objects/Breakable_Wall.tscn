@@ -1,16 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://dul7gyx1rr8nt"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Breakable_Wall.gd" id="1_2fi22"]
-[ext_resource type="Texture2D" uid="uid://bcprq00ufvwh4" path="res://icon.svg" id="1_jfwmk"]
+[ext_resource type="Texture2D" uid="uid://5r1bk3dljrlu" path="res://Assets/Maps/KnoblePersona/Breakable_wall.png" id="2_ucbsy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qj0rq"]
 
 [node name="Breakable_Wall" type="StaticBody2D" groups=["breakable_wall"]]
 script = ExtResource("1_2fi22")
 
+[node name="BreakableWall" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
+texture = ExtResource("2_ucbsy")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.108001, 0.715)
-texture = ExtResource("1_jfwmk")
+position = Vector2(0, 24)
+scale = Vector2(1, 0.955)
+texture = ExtResource("2_ucbsy")
+
+[node name="BreakableWall2" type="Sprite2D" parent="."]
+position = Vector2(0, -22)
+texture = ExtResource("2_ucbsy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.559999, 4.56)
