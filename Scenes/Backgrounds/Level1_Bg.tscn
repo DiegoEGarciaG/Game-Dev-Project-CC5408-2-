@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dafept673et77" path="res://Assets/Maps/lvl1/Day/5.png" id="5_vtcmf"]
 
 [node name="Level1_Bg" type="ParallaxBackground"]
-scale = Vector2(1.4, 1.4)
-transform = Transform2D(1.4, 0, 0, 1.4, 0, 0)
+scale = Vector2(1.6, 1.6)
+transform = Transform2D(1.6, 0, 0, 1.6, 0, 0)
 scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
