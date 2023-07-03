@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxb5qit71hvhn"]
+[gd_scene load_steps=17 format=3 uid="uid://bxb5qit71hvhn"]
 
 [ext_resource type="Texture2D" uid="uid://dh5bmlglwq0m3" path="res://Assets/Maps/KnoblePersona/Stairs.png" id="1_6chb8"]
 [ext_resource type="Script" path="res://Scenes/levels/Level2.gd" id="1_xmlk4"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bq8j4q14fb00d" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="7_o3vje"]
 [ext_resource type="PackedScene" uid="uid://grm6xlghgon3" path="res://Scenes/characters/hookCharacter/HookCharacter.tscn" id="8_0t20x"]
 [ext_resource type="PackedScene" uid="uid://b6ail2v8rscx" path="res://Scenes/Objects/FollowCamera.tscn" id="9_sjyjf"]
+[ext_resource type="PackedScene" uid="uid://bla75b1jw6nsx" path="res://Scenes/Backgrounds/Level2_Bg.tscn" id="10_bhb2w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nw7v"]
 texture = ExtResource("1_6chb8")
@@ -502,7 +503,6 @@ position = Vector2(3052, 452)
 [node name="Ceiling" parent="PhysicObjs" instance=ExtResource("5_15fpu")]
 position = Vector2(813, 407)
 rotation = 1.56788
-scale = Vector2(1, 1)
 
 [node name="winds" type="Node2D" parent="PhysicObjs"]
 
@@ -515,3 +515,5 @@ position = Vector2(-307, 445)
 position = Vector2(-355, 441)
 
 [node name="FollowCamera" parent="." instance=ExtResource("9_sjyjf")]
+
+[node name="Level2_Bg" parent="." instance=ExtResource("10_bhb2w")]
