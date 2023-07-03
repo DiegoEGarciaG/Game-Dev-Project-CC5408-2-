@@ -512,7 +512,7 @@ length = 8.23508
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_scjmo"]
 length = 8.23529
 
-[node name="WindCharacter" type="CharacterBody2D" groups=["camera", "player", "pushable"]]
+[node name="WindCharacter" type="CharacterBody2D" groups=["Aira", "camera", "player", "pushable"]]
 scale = Vector2(1.7, 1.799)
 collision_layer = 8
 collision_mask = 7

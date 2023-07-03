@@ -483,7 +483,7 @@ length = 8.23508
 [sub_resource type="SeparationRayShape2D" id="SeparationRayShape2D_w0v2f"]
 length = 8.23529
 
-[node name="HookCharacter" type="CharacterBody2D" groups=["camera", "player", "pushable"]]
+[node name="HookCharacter" type="CharacterBody2D" groups=["Grappel", "camera", "player", "pushable"]]
 scale = Vector2(1.88085, 1.98983)
 collision_layer = 64
 collision_mask = 7
