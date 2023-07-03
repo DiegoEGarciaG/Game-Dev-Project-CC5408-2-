@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://csmu1bjy3w1gv"]
+
+[ext_resource type="Texture2D" uid="uid://c7w4dj07j2ihe" path="res://Assets/ObjectAssets/box_area.png" id="1_t5cj8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj6ic"]
+size = Vector2(48, 51)
+
+[node name="GrappelsArea" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jj6ic")
+
+[node name="BoxArea" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(1.46831, 1.57989)
+texture = ExtResource("1_t5cj8")

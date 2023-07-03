@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://caysqhjvw1pbi"]
+[gd_scene load_steps=25 format=3 uid="uid://caysqhjvw1pbi"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level1.gd" id="1_t4eey"]
 [ext_resource type="PackedScene" uid="uid://bq8j4q14fb00d" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="2_ihstl"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dpl6j8itxvyhc" path="res://Scenes/Backgrounds/Level1_Bg.tscn" id="12_h3px3"]
 [ext_resource type="PackedScene" uid="uid://cgiwcc7gqrfy0" path="res://Scenes/Objects/Platforms/platform_owc_d.tscn" id="13_hfnev"]
 [ext_resource type="Texture2D" uid="uid://lyedgbo5dt7e" path="res://Assets/ObjectAssets/grappel_area.png" id="14_fqx2d"]
+[ext_resource type="Texture2D" uid="uid://c7w4dj07j2ihe" path="res://Assets/ObjectAssets/box_area.png" id="14_montg"]
 [ext_resource type="Texture2D" uid="uid://b5f6tr3cwgspq" path="res://Assets/ObjectAssets/aira_area.png" id="15_kpaaj"]
 [ext_resource type="PackedScene" uid="uid://fh5bqsk3pno2" path="res://Scenes/Objects/Texto/Level_1_text.tscn" id="16_w26f8"]
 
@@ -487,11 +488,20 @@ collision_mask = 25
 position = Vector2(-122, -421.5)
 shape = SubResource("RectangleShape2D_731ci")
 
+[node name="BoxArea" type="Sprite2D" parent="Areas/BoxActivationArea1/CollisionShape2D"]
+position = Vector2(0, 0.5)
+scale = Vector2(1.48654, 1.28437)
+texture = ExtResource("14_montg")
+
 [node name="BoxActivationArea2" type="Area2D" parent="Areas"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/BoxActivationArea2"]
 position = Vector2(1506, -370)
 shape = SubResource("RectangleShape2D_731ci")
+
+[node name="BoxArea" type="Sprite2D" parent="Areas/BoxActivationArea2/CollisionShape2D"]
+scale = Vector2(1.46831, 1.57989)
+texture = ExtResource("14_montg")
 
 [node name="GrappelsWin" type="Area2D" parent="Areas"]
 position = Vector2(269, -631)
