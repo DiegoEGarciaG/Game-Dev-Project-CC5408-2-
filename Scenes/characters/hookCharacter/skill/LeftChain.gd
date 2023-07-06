@@ -12,7 +12,7 @@ var collisionResult = null
 const SPEED = 800	# The speed with which the chain moves
 var flying = false	# Whether the chain is moving through the air
 var hooked = false	# Whether the chain has connected to a wall
-const max_extension = 650
+const max_extension = 400
 var extension = 0
 # shoot() shoots the chain in a given direction
 func shoot(dir: Vector2) -> void:
