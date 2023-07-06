@@ -8,7 +8,7 @@ radius = 63.1269
 
 [node name="trampoline" type="Area2D" groups=["pushable"]]
 collision_layer = 19
-collision_mask = 25
+collision_mask = 89
 script = ExtResource("1_ykd7p")
 metadata/_edit_group_ = true
 
