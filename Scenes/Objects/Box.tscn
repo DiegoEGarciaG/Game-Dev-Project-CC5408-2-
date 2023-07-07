@@ -20,5 +20,3 @@ shape = SubResource("RectangleShape2D_v5ojh")
 position = Vector2(-1.5, 0)
 scale = Vector2(2.87, 2.87)
 texture = ExtResource("2_qnudu")
-
-[node name="Timer" type="Timer" parent="."]

@@ -541,8 +541,6 @@ position = Vector2(0, 1.00511)
 scale = Vector2(0.97647, 1)
 shape = SubResource("CapsuleShape2D_hew8t")
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_ujgqm")
 anim_player = NodePath("../AnimationPlayer")

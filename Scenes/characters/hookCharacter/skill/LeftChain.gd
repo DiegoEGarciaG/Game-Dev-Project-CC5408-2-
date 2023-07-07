@@ -1,5 +1,7 @@
 extends Node2D
 
+signal pull(body, direction)
+
 @onready var links = $Links		# A slightly easier reference to the links
 var direction := Vector2(0,0)	# The direction in which the chain was shot
 var tip := Vector2(0,0)			# The global position the tip should be in
@@ -49,6 +51,7 @@ func _physics_process(_delta: float) -> void:
 			release()
 		collisionResult = $Tip.move_and_collide(direction * SPEED * _delta)	
 		if collisionResult:
-			hooked = true	# Got something!
+#			hooked = true	# Got something! todo: handle hook de-aparition
 			flying = false	# Not flying anymore
+			emit_signal("pull", collisionResult.get_collider(), direction)
 	tip = $Tip.global_position	# set `tip` as starting position for next frame

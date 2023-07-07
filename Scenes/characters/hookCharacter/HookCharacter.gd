@@ -14,6 +14,8 @@ var right_click_pressed = false
 var chain_velocity := Vector2(0,0)
 const CHAIN_PULL = 65
 
+### pull signal
+signal final_pull(body, direction)
 
 @onready var left_chain = $Pivot/LeftChain
 @onready var chain = $Pivot/Chain
@@ -71,6 +73,7 @@ func _input(event: InputEvent) -> void:
 
 func _ready():
 	animation_tree.active = true
+	left_chain.connect("pull", on_pull)
 	
 func _physics_process(delta):
 	# Add the gravity.
@@ -187,3 +190,8 @@ func process_mouse_movement():
 		var motionDirection = motionVector.normalized()
 		# Here you can check the direction of the motion and perform your desired action
 		return [vel, motionDirection]
+		
+############################
+
+func on_pull(body, direction):
+	emit_signal("final_pull", body, direction)
