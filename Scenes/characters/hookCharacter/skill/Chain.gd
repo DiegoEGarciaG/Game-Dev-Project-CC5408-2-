@@ -1,5 +1,6 @@
 extends Node2D
 
+var HookThing = preload("res://Scenes/Objects/HookThing.gd")
 @onready var links = $Links		# A slightly easier reference to the links
 var direction := Vector2(0,0)	# The direction in which the chain was shot
 var tip := Vector2(0,0)			# The global position the tip should be in
@@ -45,7 +46,12 @@ func _physics_process(_delta: float) -> void:
 		extension += SPEED * _delta
 		if extension >= max_extension:
 			release()
-		if $Tip.move_and_collide(direction * SPEED * _delta):
-			hooked = true	# Got something!
-			flying = false	# Not flying anymore
+		var collisionResult = $Tip.move_and_collide(direction * SPEED * _delta)	
+		if collisionResult:
+			var collider = collisionResult.get_collider()
+			if is_instance_of(collider, HookThing):
+				hooked = true	# Got something!
+				flying = false	# Not flying anymore
+			else:
+				release()
 	tip = $Tip.global_position	# set `tip` as starting position for next frame
