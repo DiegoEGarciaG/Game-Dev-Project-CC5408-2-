@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://btvs2ivna3ot2" path="res://Assets/Maps/lvl3/2 Background/5.png" id="5_botjh"]
 
 [node name="Level3_Bg" type="ParallaxBackground"]
+scale = Vector2(1.6, 1.6)
+transform = Transform2D(1.6, 0, 0, 1.6, 0, 0)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0, 0)
