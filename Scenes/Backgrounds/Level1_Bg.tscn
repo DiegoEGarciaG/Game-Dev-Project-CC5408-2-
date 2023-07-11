@@ -13,7 +13,7 @@ scroll_ignore_camera_zoom = true
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(576, 0)
+motion_mirroring = Vector2(921.6, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
 scale = Vector2(2, 2)
@@ -22,7 +22,7 @@ centered = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0, 0)
-motion_mirroring = Vector2(576, 0)
+motion_mirroring = Vector2(921.6, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 scale = Vector2(2, 2)
@@ -31,7 +31,7 @@ centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.2, 0.02)
-motion_mirroring = Vector2(806.4, 0)
+motion_mirroring = Vector2(921.6, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
 scale = Vector2(2, 2)
@@ -40,7 +40,7 @@ centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.2, 0.067)
-motion_mirroring = Vector2(806.4, 0)
+motion_mirroring = Vector2(921.6, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
 scale = Vector2(2, 2)
@@ -49,7 +49,7 @@ centered = false
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.4, 0.133)
-motion_mirroring = Vector2(806.4, 0)
+motion_mirroring = Vector2(921.6, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
 scale = Vector2(2, 2)
