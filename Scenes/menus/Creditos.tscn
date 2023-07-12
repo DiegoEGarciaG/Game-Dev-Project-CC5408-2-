@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtfl5h06xycs1"]
+
+[ext_resource type="Script" path="res://Scenes/menus/menu_background.gd" id="1_aqyva"]
+[ext_resource type="Texture2D" uid="uid://btfw1lqc3x5qt" path="res://Assets/Menus/background_glacial_mountains_lightened.png" id="2_sffqt"]
+[ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="4_v0fkd"]
+[ext_resource type="PackedScene" uid="uid://bmjixccdgpnb0" path="res://Scenes/Objects/SoundObjects/MenuTheme.tscn" id="5_wln6p"]
+[ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="6_g3x0y"]
+[ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="7_lmiie"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_arav3"]
+font = ExtResource("4_v0fkd")
+font_size = 25
+
+[node name="MenuBackground" type="PanelContainer"]
+script = ExtResource("1_aqyva")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Background0" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(3, 3.133)
+texture = ExtResource("2_sffqt")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Creditos"
+label_settings = SubResource("LabelSettings_arav3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tileset:
+- KnoblePersona"
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Fondos: 
+- http://creativecommons.org/licenses/by/4.0/
+- https://craftpix.net/file-licenses/"
+
+[node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Personajes: (Modificado)
+- DyLESTorm"
+
+[node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Sonidos:
+- llenar"
+
+[node name="Label5" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="Label5" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Desarrollo:
+- Sebastián Mira
+- Diego García
+- Carlos Stekel
+
+Agradecimientos especiales a los docentes de ramo Taller de Diseño 
+y Desarrollo de Videojuegos de la Universidad de Chile"
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Salir"
+
+[node name="MenuTheme" parent="." instance=ExtResource("5_wln6p")]
+bus = &"Music"
+
+[node name="PressedButtonSound" parent="." instance=ExtResource("6_g3x0y")]
+bus = &"SoundEffects"
+
+[node name="HoverButtonSound" parent="." instance=ExtResource("7_lmiie")]
+bus = &"SoundEffects"
