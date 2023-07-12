@@ -234,6 +234,14 @@ theme_override_fonts/font = ExtResource("3_ps0p8")
 theme_override_font_sizes/font_size = 20
 text = "Settings"
 
+[node name="Creditos" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_ps0p8")
+theme_override_font_sizes/font_size = 20
+text = "Creditos"
+
 [node name="Exit" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
@@ -358,6 +366,8 @@ bus = &"SoundEffects"
 [connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Play" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Settings" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Creditos" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Creditos" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Exit" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/1" to="." method="_on_button_mouse_entered"]

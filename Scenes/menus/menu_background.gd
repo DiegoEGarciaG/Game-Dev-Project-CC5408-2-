@@ -5,6 +5,7 @@ extends PanelContainer
 @onready var play = %Play
 @onready var settings = %Settings
 @onready var exit = %Exit
+@onready var creditos = %Creditos
 @onready var menu_theme = $MenuTheme
 # Settings options
 #Settings back button
@@ -37,6 +38,7 @@ func _ready():
 	back.pressed.connect(_on_settings_pressed)
 	back_button.pressed.connect(_on_play_pressed)
 	exit.pressed.connect(_on_exit_pressed)
+	creditos.pressed.connect(_on_creditos_pressed)
 	#Connect levels
 	level_1.pressed.connect(_on_level1_pressed)
 	level_2.pressed.connect(_on_level2_pressed)
@@ -63,6 +65,9 @@ func _on_testing_pressed():
 	
 func _on_exit_pressed():
 	get_tree().quit()
+	
+func _on_creditos_pressed():
+	get_tree().change_scene_to_file("res://Scenes/menus/Creditos.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 @onready var pressed_button_sound = $PressedButtonSound
