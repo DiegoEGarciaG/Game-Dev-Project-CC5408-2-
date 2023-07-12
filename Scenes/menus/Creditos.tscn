@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtfl5h06xycs1"]
 
-[ext_resource type="Script" path="res://Scenes/menus/menu_background.gd" id="1_aqyva"]
+[ext_resource type="Script" path="res://Scenes/menus/Creditos.gd" id="1_ao3uo"]
 [ext_resource type="Texture2D" uid="uid://btfw1lqc3x5qt" path="res://Assets/Menus/background_glacial_mountains_lightened.png" id="2_sffqt"]
 [ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="4_v0fkd"]
 [ext_resource type="PackedScene" uid="uid://bmjixccdgpnb0" path="res://Scenes/Objects/SoundObjects/MenuTheme.tscn" id="5_wln6p"]
@@ -12,7 +12,7 @@ font = ExtResource("4_v0fkd")
 font_size = 25
 
 [node name="MenuBackground" type="PanelContainer"]
-script = ExtResource("1_aqyva")
+script = ExtResource("1_ao3uo")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -106,7 +106,10 @@ Agradecimientos especiales a los docentes de ramo Taller de Diseño
 y Desarrollo de Videojuegos de la Universidad de Chile"
 
 [node name="Button" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_v0fkd")
 text = "Salir"
 
 [node name="MenuTheme" parent="." instance=ExtResource("5_wln6p")]
