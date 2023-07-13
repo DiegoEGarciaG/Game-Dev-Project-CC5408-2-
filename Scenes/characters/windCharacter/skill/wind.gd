@@ -18,6 +18,8 @@ func _on_body_entered(body):
 		body.wind_movement_ch(150*movement_vector.rotated(rotation))
 	elif body.is_in_group("pushable"):
 		body.apply_central_force(50000*movement_vector.rotated(rotation))
+		if body.is_in_group("wall"):
+			queue_free()
 	elif body.is_in_group("breakable_wall"):
 		var wall = body as StaticBody2D
 		wall.breakWall()

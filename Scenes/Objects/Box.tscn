@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v5ojh"]
 size = Vector2(120, 116)
 
-[node name="Box" type="RigidBody2D" groups=["pushable"]]
+[node name="Box" type="RigidBody2D" groups=["pushable", "wall"]]
 collision_layer = 17
 input_pickable = true
 can_sleep = false
