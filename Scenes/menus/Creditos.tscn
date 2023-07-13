@@ -53,7 +53,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Creditos"
+text = "Credits"
 label_settings = SubResource("LabelSettings_arav3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -75,7 +75,10 @@ text = "Tileset:
 layout_mode = 2
 text = "Backgrounds: 
 - http://creativecommons.org/licenses/by/4.0/
-- https://craftpix.net/file-licenses/"
+Vicente Nitti (@vnitti)
+(Main menu, no modifications)
+- https://craftpix.net/file-licenses/
+(levels)"
 
 [node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -91,7 +94,10 @@ text = "Sounds:
 [node name="Label5" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Music:
-- https://mayragandra.itch.io/freeambientmusic"
+- https://mayragandra.itch.io/freeambientmusic
+(menu)
+- https://ansimuz.itch.io/adventure-music-collection-pack-1
+(levels)"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 clip_contents = true
@@ -106,14 +112,14 @@ text = "Developers:
 - Carlos Stekel
 
 Special thanks to the teaching team of the course CC5408-2 
-2023 at Universidad de Chile"
+2023, Universidad de Chile"
 
 [node name="Button" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_v0fkd")
-text = "Salir"
+text = "Back"
 
 [node name="MenuTheme" parent="." instance=ExtResource("5_wln6p")]
 bus = &"Music"
