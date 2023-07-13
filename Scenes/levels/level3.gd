@@ -143,3 +143,20 @@ func _on_4th_platform_Aira_exited(body):
 	if body.is_in_group("player"):
 		pipe_platform.call_deferred("collision_deac")
 #############################################
+
+
+######### WINNING CONDITIONS ###############
+var winCond1 = false
+var winCond2 = false
+
+func _on_airas_win_body_entered(body):
+	if body.is_in_group("Aira"):
+		winCond1 = true
+		if winCond2:
+			get_tree().change_scene_to_file("res://Scenes/menus/menu_background.tscn")
+
+func _on_grappels_win_body_entered(body):
+	if body.is_in_group("Grappel"):
+		winCond2 = true
+		if winCond1:
+			get_tree().change_scene_to_file("res://Scenes/menus/menu_background.tscn")
