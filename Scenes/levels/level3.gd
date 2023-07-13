@@ -76,7 +76,6 @@ func _process(_delta):
 
 	if move:
 		if (activation_wall.global_position.y <= 472):
-			print(activation_wall.global_position.y)
 			activation_wall.velocity.y = box_speed
 			activation_wall.move_and_slide()
 	else:
@@ -85,12 +84,10 @@ func _process(_delta):
 			activation_wall.move_and_slide()
 
 func _on_2nd_platform_Grappel_entered(body):
-	print("a")
 	if body.is_in_group("player"):
 		move = true
 		
 func _on_2nd_platform_Grappel_exited(body):
-	print("a")
 	if body.is_in_group("player"):
 		move = false
 #############################################

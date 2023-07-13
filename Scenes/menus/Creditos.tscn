@@ -73,22 +73,25 @@ text = "Tileset:
 
 [node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Fondos: 
+text = "Backgrounds: 
 - http://creativecommons.org/licenses/by/4.0/
 - https://craftpix.net/file-licenses/"
 
 [node name="Label3" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Personajes: (Modificado)
+text = "Characters: (Modified from)
 - DyLESTorm"
 
 [node name="Label4" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Sonidos:
-- llenar"
+text = "Sounds:
+- https://leohpaz.itch.io/rpg-essentials-sfx-free 
+- https://yourpalrob.itch.io/classic-arcade-sound-effects"
 
 [node name="Label5" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+text = "Music:
+- https://mayragandra.itch.io/freeambientmusic"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 clip_contents = true
@@ -97,13 +100,13 @@ layout_mode = 2
 
 [node name="Label5" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Desarrollo:
+text = "Developers:
 - Sebastián Mira
 - Diego García
 - Carlos Stekel
 
-Agradecimientos especiales a los docentes de ramo Taller de Diseño 
-y Desarrollo de Videojuegos de la Universidad de Chile"
+Special thanks to the teaching team of the course CC5408-2 
+2023 at Universidad de Chile"
 
 [node name="Button" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(130, 40)
