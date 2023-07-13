@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ctml8fh5wg81o"]
+
+[node name="Level_1_text" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer"]
+layout_mode = 2
+text = "Good job Getting out of that place.
+Now you´re in the residential zone of valparadise look at this dumpster.
+These walls and ceillings look like could go down just with a little breeze.
+"
+fit_content = true
+tab_size = 5

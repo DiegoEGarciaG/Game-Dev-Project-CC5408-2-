@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://cff3w7o3a3atc"]
+
+[ext_resource type="Script" path="res://Scenes/menus/Transicion1_2.gd" id="1_21o7i"]
+[ext_resource type="Texture2D" uid="uid://btfw1lqc3x5qt" path="res://Assets/Menus/background_glacial_mountains_lightened.png" id="2_xl143"]
+[ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="3_iskd6"]
+[ext_resource type="PackedScene" uid="uid://bmjixccdgpnb0" path="res://Scenes/Objects/SoundObjects/MenuTheme.tscn" id="4_lv6ys"]
+[ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="5_abr2g"]
+[ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="6_b11cf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_arav3"]
+font = ExtResource("3_iskd6")
+font_size = 25
+
+[node name="MenuBackground" type="PanelContainer"]
+script = ExtResource("1_21o7i")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Background0" type="Sprite2D" parent="CanvasLayer"]
+scale = Vector2(3, 3.133)
+texture = ExtResource("2_xl143")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(1000, 500)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Titulo"
+label_settings = SubResource("LabelSettings_arav3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Cuerpo"
+
+[node name="Button" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(130, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_iskd6")
+text = "Understood"
+
+[node name="MenuTheme" parent="." instance=ExtResource("4_lv6ys")]
+bus = &"Music"
+
+[node name="PressedButtonSound" parent="." instance=ExtResource("5_abr2g")]
+bus = &"SoundEffects"
+
+[node name="HoverButtonSound" parent="." instance=ExtResource("6_b11cf")]
+bus = &"SoundEffects"
