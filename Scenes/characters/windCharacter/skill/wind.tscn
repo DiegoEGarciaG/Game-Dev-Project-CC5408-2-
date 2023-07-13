@@ -79,7 +79,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_31jid"]
 size = Vector2(53, 47.5)
 
-[node name="wind" type="Area2D"]
+[node name="wind" type="Area2D" groups=["wind"]]
 rotation = 1.5708
 scale = Vector2(0.589, 1)
 collision_layer = 2

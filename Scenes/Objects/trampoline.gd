@@ -7,7 +7,7 @@ var jump_timer := 0
 
 
 func _on_trampoline_body_entered(body) -> void:
-	var contact_point = body.transform.origin
+	var contact_point = body.global_position
 	var center = global_position
 	var direction = (contact_point - center).normalized()
 	if body.has_method("trampoline_impulse_in"):
