@@ -36,7 +36,7 @@ func _process(_delta):
 	#Win condition
 	if winCond1 and winCond2:
 		winning_sound.play(0.0)
-		get_tree().change_scene_to_file("res://Scenes/menus/Transicion1_2.tscn")
+		get_tree().change_scene_to_file("res://Scenes/menus/transicion1_2.tscn")
 			
 func _on_player_wind_cast(wind):
 	winds.add_child(wind)

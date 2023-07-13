@@ -58,19 +58,19 @@ func _on_level1_pressed():
 	get_tree().change_scene_to_file("res://Scenes/levels/level1.tscn")
 	
 func _on_level2_pressed():
-	get_tree().change_scene_to_file("res://Scenes/levels/Level2.tscn")
+	get_tree().change_scene_to_file("res://Scenes/levels/level2.tscn")
 	
 func _on_level3_pressed():
-	get_tree().change_scene_to_file("res://Scenes/levels/Level3.tscn")
+	get_tree().change_scene_to_file("res://Scenes/levels/level3.tscn")
 	
 func _on_testing_pressed():
-	get_tree().change_scene_to_file("res://Scenes/levels/Testing_grounds.tscn")
+	get_tree().change_scene_to_file("res://Scenes/levels/testing_grounds.tscn")
 	
 func _on_exit_pressed():
 	get_tree().quit()
 	
 func _on_creditos_pressed():
-	get_tree().change_scene_to_file("res://Scenes/menus/Creditos.tscn")
+	get_tree().change_scene_to_file("res://Scenes/menus/creditos.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 @onready var pressed_button_sound = $PressedButtonSound

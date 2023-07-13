@@ -1,25 +1,25 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtfl5h06xycs1"]
 
-[ext_resource type="Script" path="res://Scenes/menus/Creditos.gd" id="1_ao3uo"]
-[ext_resource type="Texture2D" uid="uid://btfw1lqc3x5qt" path="res://Assets/Menus/background_glacial_mountains_lightened.png" id="2_sffqt"]
-[ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="4_v0fkd"]
-[ext_resource type="PackedScene" uid="uid://bmjixccdgpnb0" path="res://Scenes/Objects/SoundObjects/MenuTheme.tscn" id="5_wln6p"]
-[ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="6_g3x0y"]
-[ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="7_lmiie"]
+[ext_resource type="Script" path="res://Scenes/menus/Creditos.gd" id="1_l0u44"]
+[ext_resource type="Texture2D" uid="uid://btfw1lqc3x5qt" path="res://Assets/Menus/background_glacial_mountains_lightened.png" id="2_qaw4q"]
+[ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="3_2kpii"]
+[ext_resource type="PackedScene" uid="uid://bmjixccdgpnb0" path="res://Scenes/Objects/SoundObjects/MenuTheme.tscn" id="4_503vs"]
+[ext_resource type="PackedScene" uid="uid://bhxwtmtc6euj0" path="res://Scenes/Objects/SoundObjects/PressedButtonSound.tscn" id="5_ske4w"]
+[ext_resource type="PackedScene" uid="uid://byjdsncifff0r" path="res://Scenes/Objects/SoundObjects/HoverButtonSound.tscn" id="6_tte4m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_arav3"]
-font = ExtResource("4_v0fkd")
+font = ExtResource("3_2kpii")
 font_size = 25
 
 [node name="MenuBackground" type="PanelContainer"]
-script = ExtResource("1_ao3uo")
+script = ExtResource("1_l0u44")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
 [node name="Background0" type="Sprite2D" parent="CanvasLayer"]
 scale = Vector2(3, 3.133)
-texture = ExtResource("2_sffqt")
+texture = ExtResource("2_qaw4q")
 centered = false
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
@@ -118,14 +118,14 @@ Special thanks to the teaching team of the course CC5408-2
 custom_minimum_size = Vector2(130, 40)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("4_v0fkd")
+theme_override_fonts/font = ExtResource("3_2kpii")
 text = "Back"
 
-[node name="MenuTheme" parent="." instance=ExtResource("5_wln6p")]
+[node name="MenuTheme" parent="." instance=ExtResource("4_503vs")]
 bus = &"Music"
 
-[node name="PressedButtonSound" parent="." instance=ExtResource("6_g3x0y")]
+[node name="PressedButtonSound" parent="." instance=ExtResource("5_ske4w")]
 bus = &"SoundEffects"
 
-[node name="HoverButtonSound" parent="." instance=ExtResource("7_lmiie")]
+[node name="HoverButtonSound" parent="." instance=ExtResource("6_tte4m")]
 bus = &"SoundEffects"

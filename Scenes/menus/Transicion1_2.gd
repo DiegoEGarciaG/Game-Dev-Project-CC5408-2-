@@ -10,7 +10,7 @@ func _ready():
 	exit.pressed.connect(_on_button_mouse_entered)
 
 func _on_exit_pressed():
-	get_tree().change_scene_to_file("res://Scenes/levels/Level2.tscn")
+	get_tree().change_scene_to_file("res://Scenes/levels/level2.tscn")
 	
 func _on_button_mouse_entered():
 	hover_button_sound.play(0.0)

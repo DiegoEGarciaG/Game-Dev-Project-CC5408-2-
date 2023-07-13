@@ -152,14 +152,14 @@ func _on_airas_win_body_entered(body):
 		winCond1 = true
 		if winCond2:
 			winning_sound.play(0.0)
-			get_tree().change_scene_to_file("res://Scenes/menus/Transicion3_C.tscn")
+			get_tree().change_scene_to_file("res://Scenes/menus/transicion3_C.tscn")
 
 func _on_grappels_win_body_entered(body):
 	if body.is_in_group("Grappel"):
 		winCond2 = true
 		if winCond1:
 			winning_sound.play(0.0)
-			get_tree().change_scene_to_file("res://Scenes/menus/Transicion3_C.tscn")
+			get_tree().change_scene_to_file("res://Scenes/menus/transicion3_C.tscn")
 
 @onready var ambient_music = $Audios/ambientMusic
 func _on_audio_stream_player_finished():
