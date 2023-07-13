@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://yoiwbuky7qcu"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Platforms/platform_owc_d.gd" id="1_6uxfd"]
+[ext_resource type="Texture2D" uid="uid://bj2xicgsbj0d1" path="res://Assets/ObjectAssets/pipePlatform.png" id="2_722qy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ugtng"]
+size = Vector2(20, 19)
+
+[node name="pipePlatform" type="StaticBody2D"]
+script = ExtResource("1_6uxfd")
+
+[node name="platform" type="Sprite2D" parent="."]
+texture = ExtResource("2_722qy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.6, 0.320001)
+shape = SubResource("RectangleShape2D_ugtng")

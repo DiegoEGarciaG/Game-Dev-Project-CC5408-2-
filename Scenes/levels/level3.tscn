@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cuj7d6l1l32iw"]
+[gd_scene load_steps=34 format=3 uid="uid://cuj7d6l1l32iw"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level3.gd" id="1_2n4ar"]
 [ext_resource type="Texture2D" uid="uid://dh5bmlglwq0m3" path="res://Assets/Maps/KnoblePersona/Stairs.png" id="1_8wp5p"]
@@ -13,9 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://grm6xlghgon3" path="res://Scenes/characters/hookCharacter/HookCharacter.tscn" id="8_so8co"]
 [ext_resource type="PackedScene" uid="uid://bp76nyf8y26nv" path="res://Scenes/Objects/HookThing.tscn" id="12_g1a3f"]
 [ext_resource type="Script" path="res://Scenes/Objects/FollowCamera.gd" id="12_q7wuq"]
+[ext_resource type="PackedScene" uid="uid://yoiwbuky7qcu" path="res://Scenes/Objects/Platforms/pipePlatform.tscn" id="13_8svoc"]
 [ext_resource type="PackedScene" uid="uid://q8jp7eq2amp1" path="res://Scenes/menus/pause.tscn" id="13_crrht"]
-[ext_resource type="PackedScene" uid="uid://cgiwcc7gqrfy0" path="res://Scenes/Objects/Platforms/platform_owc_d.tscn" id="13_kks3x"]
 [ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="14_al7t5"]
+[ext_resource type="Texture2D" uid="uid://bj2xicgsbj0d1" path="res://Assets/ObjectAssets/pipePlatform.png" id="14_iibce"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nw7v"]
 texture = ExtResource("1_8wp5p")
@@ -926,6 +927,8 @@ sources/5 = SubResource("TileSetAtlasSource_8gkab")
 [sub_resource type="CircleShape2D" id="CircleShape2D_lr0db"]
 radius = 63.1269
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tc5gj"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_4fhb1"]
 font = ExtResource("14_al7t5")
 font_size = 25
@@ -984,10 +987,10 @@ layer_3/tile_data = PackedInt32Array(1966054, 3, 3, 1900518, 3, 2, 1834982, 3, 2
 position = Vector2(400, 693)
 
 [node name="WindCharacter" parent="Players" instance=ExtResource("7_qo8i3")]
-position = Vector2(1387, -809)
+position = Vector2(1032, -613)
 
 [node name="HookCharacter" parent="Players" instance=ExtResource("8_so8co")]
-position = Vector2(-68.0001, -610)
+position = Vector2(1424, -1149)
 scale = Vector2(1.7, 1.799)
 
 [node name="PhysicObjs" type="Node2D" parent="."]
@@ -1066,9 +1069,23 @@ position = Vector2(490, -22)
 [node name="HookThing3" parent="PhysicObjs" instance=ExtResource("12_g1a3f")]
 position = Vector2(1213, -390)
 
-[node name="platform_owc_d" parent="PhysicObjs" instance=ExtResource("13_kks3x")]
-position = Vector2(1859, -311)
-scale = Vector2(12.9261, 3.70898)
+[node name="pipePlatform" parent="PhysicObjs" instance=ExtResource("13_8svoc")]
+position = Vector2(1872, -331)
+scale = Vector2(18.6175, 3.21995)
+
+[node name="ActivationWall" type="CharacterBody2D" parent="PhysicObjs"]
+position = Vector2(1670, -46)
+scale = Vector2(1.96, 5.68)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PhysicObjs/ActivationWall"]
+rotation = -1.5708
+scale = Vector2(2.99534, 2.62584)
+texture = ExtResource("14_iibce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PhysicObjs/ActivationWall"]
+scale = Vector2(1, 4.8)
+shape = SubResource("RectangleShape2D_tc5gj")
 
 [node name="FollowCamera" type="Camera2D" parent="."]
 position = Vector2(165, 332)
@@ -1231,6 +1248,16 @@ position = Vector2(1096, 404)
 shape = SubResource("RectangleShape2D_d0uhj")
 
 [node name="3rdAreaTimer" type="Timer" parent="Areas/3rdAiraArea"]
+
+[node name="4thAiraArea" type="Area2D" parent="Areas"]
+position = Vector2(342, -279)
+collision_mask = 73
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/4thAiraArea"]
+position = Vector2(1096, 404)
+shape = SubResource("RectangleShape2D_d0uhj")
+
+[node name="3rdAreaTimer" type="Timer" parent="Areas/4thAiraArea"]
 
 [connection signal="body_entered" from="PhysicObjs/trampoline" to="PhysicObjs/trampoline" method="_on_trampoline_body_entered" flags=18]
 [connection signal="body_exited" from="PhysicObjs/trampoline" to="PhysicObjs/trampoline" method="_on_trampoline_exited" flags=18]

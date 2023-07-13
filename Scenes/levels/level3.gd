@@ -18,6 +18,8 @@ extends Node2D
 @onready var trampoline_4 = $PhysicObjs/trampoline4
 @onready var __rd_aira_area = $"Areas/3rdAiraArea"
 
+@onready var __th_aira_area = $"Areas/4thAiraArea"
+@onready var pipe_platform = $PhysicObjs/pipePlatform
 
 
 # Called when the node enters the scene tree for the first time.
@@ -33,6 +35,11 @@ func _ready():
 	__nd_area_timer.connect("timeout", _on_2nd_Area_Timer_Timeout)
 	__rd_aira_area.connect("body_entered", _on_3rd_area_Aira_entered)
 	__rd_area_timer.connect("timeout", _on_3rd_Area_Timer_Timeout)
+	__th_aira_area.connect("body_entered", _on_4th_platform_Aira_entered)
+	__th_aira_area.connect("body_exited", _on_4th_platform_Aira_exited)
+	pipe_platform.call_deferred("collision_deac")
+	__nd_grappel_area.connect("body_entered", _on_2nd_platform_Grappel_entered)
+	__nd_grappel_area.connect("body_exited", _on_2nd_platform_Grappel_exited)
 	
 
 
@@ -59,13 +66,40 @@ func _on_1st_platform_Grappel_exited(body):
 #############################################
 
 
+######## 2nd Grappel Platform ###############
+@onready var activation_wall = $PhysicObjs/ActivationWall
+@onready var __nd_grappel_area = $"Areas/2ndGrappelArea"
+var move = false
+var box_speed = 100
+
+func _process(_delta):
+
+	if move:
+		if (activation_wall.global_position.y <= 472):
+			print(activation_wall.global_position.y)
+			activation_wall.velocity.y = box_speed
+			activation_wall.move_and_slide()
+	else:
+		if (activation_wall.global_position.y >= -48):
+			activation_wall.velocity.y = -box_speed
+			activation_wall.move_and_slide()
+
+func _on_2nd_platform_Grappel_entered(body):
+	print("a")
+	if body.is_in_group("player"):
+		move = true
+		
+func _on_2nd_platform_Grappel_exited(body):
+	print("a")
+	if body.is_in_group("player"):
+		move = false
+#############################################
+
+
 ######## 1rst Aira HookThing ###############
 func _on_1st_platform_Aira_entered(body):
 	if body.is_in_group("player"):
 		hook_thing_2.call_deferred("collision_acti")
-
-		
-
 #############################################
 
 ######## 2nds Aira Area ###############
@@ -98,4 +132,14 @@ func _on_3rd_area_Aira_entered(body):
 func _on_3rd_Area_Timer_Timeout():
 	trampoline_4.visible = false
 	trampoline_4.monitoring = false
+#############################################
+
+######## 4th Aira Area ###############
+func _on_4th_platform_Aira_entered(body):
+	if body.is_in_group("player"):
+		pipe_platform.call_deferred("collision_acti")
+		
+func _on_4th_platform_Aira_exited(body):
+	if body.is_in_group("player"):
+		pipe_platform.call_deferred("collision_deac")
 #############################################
