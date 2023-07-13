@@ -60,10 +60,10 @@ func _on_airas_win_body_entered(body):
 	if body.is_in_group("Aira"):
 		winCond1 = true
 		if winCond2:
-			get_tree().change_scene_to_file("res://Scenes/menus/menu_background.tscn")
+			get_tree().change_scene_to_file("res://Scenes/menus/Transicion2_3.gd")
 
 func _on_grappels_win_body_entered(body):
 	if body.is_in_group("Grappel"):
 		winCond2 = true
 		if winCond1:
-			get_tree().change_scene_to_file("res://Scenes/menus/menu_background.tscn")
+			get_tree().change_scene_to_file("res://Scenes/menus/Transicion2_3.gd")

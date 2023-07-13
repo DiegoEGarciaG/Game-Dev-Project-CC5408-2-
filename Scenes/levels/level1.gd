@@ -33,7 +33,7 @@ func _process(_delta):
 		grappels.collision_acti()
 	#Win condition
 	if winCond1 and winCond2:
-		get_tree().change_scene_to_file("res://Scenes/menus/menu_background.tscn")
+		get_tree().change_scene_to_file("res://Scenes/menus/Transicion1_2.tscn")
 			
 func _on_player_wind_cast(wind):
 	winds.add_child(wind)
