@@ -56,14 +56,22 @@ func _on_grappels_area_1_body_entered(body):
 			primera_plat.call_deferred("collision_deac")
 
 
+@onready var winning_sound = $Audios/winningSound
+
 func _on_airas_win_body_entered(body):
 	if body.is_in_group("Aira"):
 		winCond1 = true
 		if winCond2:
+			winning_sound.play(0.0)
 			get_tree().change_scene_to_file("res://Scenes/menus/Transicion2_3.tscn")
 
 func _on_grappels_win_body_entered(body):
 	if body.is_in_group("Grappel"):
 		winCond2 = true
 		if winCond1:
+			winning_sound.play(0.0)
 			get_tree().change_scene_to_file("res://Scenes/menus/Transicion2_3.tscn")
+
+@onready var ambient_music = $Audios/ambientMusic
+func _on_ambient_music_finished():
+	ambient_music.play(0.0)

@@ -36,6 +36,9 @@ var mouseEndTime: float
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 
+@onready var hook_shot_sound = $hookShotSound
+@onready var jump_sound = $jumpSound
+
 # on-wind movement
 var is_on_wind_area = false
 var wind_vector = Vector2.ZERO
@@ -56,6 +59,7 @@ func _input(event: InputEvent) -> void:
 #			mouseEndTime = mouseStartTime
 	if event.is_action_pressed("RIGHT_CLICK") and !left_click_pressed:
 		# We clicked the mouse -> shoot()
+		hook_shot_sound.play(0.0)
 		right_click_pressed = true
 		chain.shoot(get_global_mouse_position() - global_position)
 	elif event.is_action_released("RIGHT_CLICK"):
@@ -63,6 +67,7 @@ func _input(event: InputEvent) -> void:
 		right_click_pressed = false		
 		chain.release()
 	elif event.is_action_pressed("CLICK") and !right_click_pressed:
+		hook_shot_sound.play(0.0)
 		left_click_pressed = true
 		left_chain.shoot(get_global_mouse_position() - global_position)
 			
@@ -81,7 +86,9 @@ func _physics_process(delta):
 		velocity.y += (gravity + wind_vector.y*5) * delta
 
 	################## Handle Jump and Slower Fall ###########################
+	
 	if Input.is_action_just_pressed("KEY_UP_HOOK") and is_on_floor():
+		jump_sound.play(0.0)
 		velocity.y = JUMP_VELOCITY
 	velocity.y += wind_vector.y*delta
 	################## END OF Handle Jump and Slower Fall ###########################	

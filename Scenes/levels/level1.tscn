@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://caysqhjvw1pbi"]
+[gd_scene load_steps=27 format=3 uid="uid://caysqhjvw1pbi"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level1.gd" id="1_t4eey"]
 [ext_resource type="PackedScene" uid="uid://bq8j4q14fb00d" path="res://Scenes/characters/windCharacter/WindCharacter.tscn" id="2_ihstl"]
@@ -17,6 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://c7w4dj07j2ihe" path="res://Assets/ObjectAssets/box_area.png" id="14_montg"]
 [ext_resource type="Texture2D" uid="uid://b5f6tr3cwgspq" path="res://Assets/ObjectAssets/aira_area.png" id="15_kpaaj"]
 [ext_resource type="PackedScene" uid="uid://fh5bqsk3pno2" path="res://Scenes/Objects/Texto/Level_1_text.tscn" id="16_w26f8"]
+[ext_resource type="AudioStream" uid="uid://cpwk2r1ruh0lg" path="res://Assets/Sounds/Level_finished.wav" id="18_x5txc"]
+[ext_resource type="AudioStream" uid="uid://bca10shpdyugc" path="res://Assets/Sounds/lvl1AmbientMusic.ogg" id="19_dnw2h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nw7v"]
 texture = ExtResource("2_u0s0u")
@@ -539,6 +541,19 @@ position = Vector2(292, 594)
 [node name="FollowCamera" parent="." instance=ExtResource("7_by7t6")]
 position = Vector2(165, 332)
 
+[node name="Audios" type="Node2D" parent="."]
+
+[node name="winningSound" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("18_x5txc")
+volume_db = -5.0
+bus = &"SoundEffects"
+
+[node name="ambientMusic" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("19_dnw2h")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+
 [connection signal="body_entered" from="Areas/BoxActivationArea1" to="." method="_on_baa_1_body_entered"]
 [connection signal="body_exited" from="Areas/BoxActivationArea1" to="." method="_on_baa_1_body_exited"]
 [connection signal="body_entered" from="Areas/BoxActivationArea2" to="." method="_on_baa_2_body_entered"]
@@ -547,3 +562,4 @@ position = Vector2(165, 332)
 [connection signal="body_exited" from="Areas/GrappelsWin" to="." method="_on_grappels_win_body_exited"]
 [connection signal="body_entered" from="Areas/AirasWin" to="." method="_on_airas_win_body_entered"]
 [connection signal="body_exited" from="Areas/AirasWin" to="." method="_on_airas_win_body_exited"]
+[connection signal="finished" from="Audios/ambientMusic" to="." method="_on_ambient_music_finished"]

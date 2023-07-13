@@ -19,6 +19,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get("parameters/playback")
 
+# sounds
+@onready var wind_sound = $windSound
+@onready var jump_sound = $jumpSound
+
 # on-wind movement
 var is_on_wind_area = false
 var wind_vector = Vector2.ZERO
@@ -53,6 +57,7 @@ func _physics_process(delta):
 
 	################## Handle Jump and Slower Fall ###########################
 	if Input.is_action_just_pressed("KEY_JUMP") and is_on_floor():
+		jump_sound.play(0.0)
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed("KEY_JUMP") and velocity.y > 0:
 		velocity.y *= SLOW_FALL_FACTOR
@@ -108,6 +113,7 @@ func _physics_process(delta):
 @onready var cd_wind = $CD_Wind
 var wind_on_CD := false
 
+
 func _on_cd_wind_timeout():
 	wind_on_CD = false
 	
@@ -119,6 +125,7 @@ func cast_wind():
 		var w = wind_scene.instantiate()
 		w.global_position = canon.global_position
 		w.rotation = canon.rotation + PI/2
+		wind_sound.play(0.0)
 		emit_signal("wind_cast", w)
 
 func wind_movement_ch(wind_vec):

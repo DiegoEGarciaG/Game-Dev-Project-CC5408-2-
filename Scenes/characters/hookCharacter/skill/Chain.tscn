@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://o1new7ueqel6"]
+[gd_scene load_steps=6 format=3 uid="uid://o1new7ueqel6"]
 
 [ext_resource type="Script" path="res://Scenes/characters/hookCharacter/skill/Chain.gd" id="1_g1glf"]
 [ext_resource type="Texture2D" uid="uid://cgmlxwoqmlkp1" path="res://Assets/ObjectAssets/link.png" id="2_47nqn"]
 [ext_resource type="Texture2D" uid="uid://bc6tffr4fsjym" path="res://Assets/ObjectAssets/hook.png" id="3_hevo3"]
+[ext_resource type="AudioStream" uid="uid://bsj6re5g8qq3h" path="res://Assets/Sounds/Whip_sounds/03_Claw_03.wav" id="4_pi4eu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vq3mq"]
 radius = 5.38516
@@ -29,3 +30,8 @@ offset = Vector2(0, 8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
 position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_vq3mq")
+
+[node name="hookCollisionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pi4eu")
+volume_db = -10.0
+bus = &"SoundEffects"

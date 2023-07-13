@@ -145,15 +145,22 @@ func _on_4th_platform_Aira_exited(body):
 ######### WINNING CONDITIONS ###############
 var winCond1 = false
 var winCond2 = false
+@onready var winning_sound = $Audios/winningSound
 
 func _on_airas_win_body_entered(body):
 	if body.is_in_group("Aira"):
 		winCond1 = true
 		if winCond2:
+			winning_sound.play(0.0)
 			get_tree().change_scene_to_file("res://Scenes/menus/Creditos.tscn")
 
 func _on_grappels_win_body_entered(body):
 	if body.is_in_group("Grappel"):
 		winCond2 = true
 		if winCond1:
+			winning_sound.play(0.0)
 			get_tree().change_scene_to_file("res://Scenes/menus/Creditos.tscn")
+
+@onready var ambient_music = $Audios/ambientMusic
+func _on_audio_stream_player_finished():
+	ambient_music.play(0.0)

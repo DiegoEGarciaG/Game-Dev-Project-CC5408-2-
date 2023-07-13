@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cuj7d6l1l32iw"]
+[gd_scene load_steps=41 format=3 uid="uid://cuj7d6l1l32iw"]
 
 [ext_resource type="Script" path="res://Scenes/levels/level3.gd" id="1_2n4ar"]
 [ext_resource type="Texture2D" uid="uid://dh5bmlglwq0m3" path="res://Assets/Maps/KnoblePersona/Stairs.png" id="1_8wp5p"]
@@ -14,12 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://grm6xlghgon3" path="res://Scenes/characters/hookCharacter/HookCharacter.tscn" id="8_so8co"]
 [ext_resource type="PackedScene" uid="uid://bp76nyf8y26nv" path="res://Scenes/Objects/HookThing.tscn" id="12_g1a3f"]
 [ext_resource type="Script" path="res://Scenes/Objects/FollowCamera.gd" id="12_q7wuq"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Platforms/pipePlatform.tscn" id="13_8svoc"]
+[ext_resource type="PackedScene" uid="uid://yoiwbuky7qcu" path="res://Scenes/Objects/Platforms/pipePlatform.tscn" id="13_8svoc"]
 [ext_resource type="PackedScene" uid="uid://q8jp7eq2amp1" path="res://Scenes/menus/pause.tscn" id="13_crrht"]
 [ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="14_al7t5"]
 [ext_resource type="Texture2D" uid="uid://bj2xicgsbj0d1" path="res://Assets/ObjectAssets/pipePlatform.png" id="14_iibce"]
 [ext_resource type="Texture2D" uid="uid://lyedgbo5dt7e" path="res://Assets/ObjectAssets/grappel_area.png" id="18_q2ypw"]
 [ext_resource type="Texture2D" uid="uid://b5f6tr3cwgspq" path="res://Assets/ObjectAssets/aira_area.png" id="19_0bsjt"]
+[ext_resource type="AudioStream" uid="uid://cpwk2r1ruh0lg" path="res://Assets/Sounds/Level_finished.wav" id="21_me67a"]
+[ext_resource type="AudioStream" uid="uid://dtuee8fenx43d" path="res://Assets/Sounds/lvl3AmbientMusic.ogg" id="22_p4455"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nw7v"]
 texture = ExtResource("1_8wp5p")
@@ -1326,6 +1328,20 @@ shape = SubResource("RectangleShape2D_20w51")
 [node name="Sprite2D" type="Sprite2D" parent="Areas/GrappelsWin/CollisionShape2D"]
 texture = ExtResource("18_q2ypw")
 
+[node name="Audios" type="Node2D" parent="."]
+
+[node name="winningSound" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("21_me67a")
+volume_db = -5.0
+bus = &"SoundEffects"
+
+[node name="ambientMusic" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("22_p4455")
+volume_db = -20.0
+pitch_scale = 0.76
+autoplay = true
+bus = &"Music"
+
 [connection signal="body_entered" from="PhysicObjs/trampoline" to="PhysicObjs/trampoline" method="_on_trampoline_body_entered" flags=18]
 [connection signal="body_exited" from="PhysicObjs/trampoline" to="PhysicObjs/trampoline" method="_on_trampoline_exited" flags=18]
 [connection signal="body_entered" from="PhysicObjs/trampoline2" to="PhysicObjs/trampoline2" method="_on_trampoline_body_entered" flags=18]
@@ -1337,3 +1353,4 @@ texture = ExtResource("18_q2ypw")
 [connection signal="area_shape_entered" from="Areas/NotWindArea" to="." method="_on_not_wind_area_area_shape_entered"]
 [connection signal="body_entered" from="Areas/AirasWin" to="." method="_on_airas_win_body_entered"]
 [connection signal="body_entered" from="Areas/GrappelsWin" to="." method="_on_grappels_win_body_entered"]
+[connection signal="finished" from="Audios/ambientMusic" to="." method="_on_audio_stream_player_finished"]

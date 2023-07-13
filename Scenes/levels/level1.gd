@@ -25,6 +25,8 @@ func _ready():
 	airas.collision_deac()
 	grappels.collision_deac()
 	
+@onready var winning_sound = $Audios/winningSound	
+
 func _process(_delta):
 	#Reactivar elementos
 	if state1 and state2:
@@ -33,6 +35,7 @@ func _process(_delta):
 		grappels.collision_acti()
 	#Win condition
 	if winCond1 and winCond2:
+		winning_sound.play(0.0)
 		get_tree().change_scene_to_file("res://Scenes/menus/Transicion1_2.tscn")
 			
 func _on_player_wind_cast(wind):
@@ -77,3 +80,8 @@ func _on_airas_win_body_entered(body):
 func _on_airas_win_body_exited(body):
 	if body.is_in_group("player"):
 		winCond2 = false
+
+@onready var ambient_music = $Audios/ambientMusic
+func _on_ambient_music_finished():
+	ambient_music.play(0.0)
+	

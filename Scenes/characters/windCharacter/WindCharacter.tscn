@@ -1,8 +1,10 @@
-[gd_scene load_steps=37 format=3 uid="uid://bq8j4q14fb00d"]
+[gd_scene load_steps=39 format=3 uid="uid://bq8j4q14fb00d"]
 
 [ext_resource type="Script" path="res://Scenes/characters/windCharacter/WindCharacter.gd" id="1_0d05c"]
 [ext_resource type="Texture2D" uid="uid://cxhijtdx8pfv3" path="res://Assets/charactersAssets/Aira/_female01-spritesheet.png" id="1_mn1hy"]
 [ext_resource type="Texture2D" uid="uid://ddaxyhcyfjyli" path="res://Assets/charactersAssets/WindCharacterAssets/Sprite Sheets/run cycle 48x48.png" id="3_5ehup"]
+[ext_resource type="AudioStream" uid="uid://ckohdsooyjdwv" path="res://Assets/Sounds/Wind.wav" id="4_s4gl1"]
+[ext_resource type="AudioStream" uid="uid://d37d2wgwuis6g" path="res://Assets/Sounds/Jump.wav" id="5_0gfpl"]
 
 [sub_resource type="Animation" id="Animation_4efyq"]
 length = 0.001
@@ -558,5 +560,15 @@ shape = SubResource("SeparationRayShape2D_f183n")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("SeparationRayShape2D_scjmo")
+
+[node name="windSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_s4gl1")
+volume_db = -10.0
+bus = &"SoundEffects"
+
+[node name="jumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0gfpl")
+volume_db = -10.0
+bus = &"SoundEffects"
 
 [connection signal="timeout" from="CD_Wind" to="." method="_on_cd_wind_timeout"]

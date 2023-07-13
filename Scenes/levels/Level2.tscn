@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bxb5qit71hvhn"]
+[gd_scene load_steps=30 format=3 uid="uid://bxb5qit71hvhn"]
 
 [ext_resource type="Texture2D" uid="uid://dh5bmlglwq0m3" path="res://Assets/Maps/KnoblePersona/Stairs.png" id="1_6chb8"]
 [ext_resource type="Script" path="res://Scenes/levels/Level2.gd" id="1_xmlk4"]
@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://b6ail2v8rscx" path="res://Scenes/Objects/FollowCamera.tscn" id="9_sjyjf"]
 [ext_resource type="PackedScene" uid="uid://bla75b1jw6nsx" path="res://Scenes/Backgrounds/Level2_Bg.tscn" id="10_bhb2w"]
 [ext_resource type="Texture2D" uid="uid://lyedgbo5dt7e" path="res://Assets/ObjectAssets/grappel_area.png" id="15_yy30o"]
+[ext_resource type="AudioStream" uid="uid://cpwk2r1ruh0lg" path="res://Assets/Sounds/Level_finished.wav" id="16_1im13"]
 [ext_resource type="Texture2D" uid="uid://b5f6tr3cwgspq" path="res://Assets/ObjectAssets/aira_area.png" id="16_n831a"]
+[ext_resource type="AudioStream" uid="uid://d2snn1x3qu5ka" path="res://Assets/Sounds/lvl2AmbientMusic.ogg" id="17_k8ydr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nw7v"]
 texture = ExtResource("1_6chb8")
@@ -637,6 +639,19 @@ shape = SubResource("RectangleShape2D_43eq1")
 [node name="Sprite2D" type="Sprite2D" parent="Areas/GrappelsWin/CollisionShape2D"]
 texture = ExtResource("15_yy30o")
 
+[node name="Audios" type="Node2D" parent="."]
+
+[node name="winningSound" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("16_1im13")
+volume_db = -5.0
+bus = &"SoundEffects"
+
+[node name="ambientMusic" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("17_k8ydr")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
+
 [connection signal="body_entered" from="Areas/AirasArea2" to="." method="_on_area_2_body_entered"]
 [connection signal="body_entered" from="Areas/AirasArea1" to="." method="_on_airas_area_1_body_entered"]
 [connection signal="body_entered" from="Areas/GrappelsArea1" to="." method="_on_grappels_area_1_body_entered"]
@@ -644,3 +659,4 @@ texture = ExtResource("15_yy30o")
 [connection signal="body_exited" from="Areas/GrappelsArea2" to="." method="_on_grappels_area_2_body_exited"]
 [connection signal="body_entered" from="Areas/AirasWin" to="." method="_on_airas_win_body_entered"]
 [connection signal="body_entered" from="Areas/GrappelsWin" to="." method="_on_grappels_win_body_entered"]
+[connection signal="finished" from="Audios/ambientMusic" to="." method="_on_ambient_music_finished"]

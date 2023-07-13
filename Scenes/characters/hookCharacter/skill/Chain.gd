@@ -40,6 +40,9 @@ func _process(_delta: float) -> void:
 
 
 # Every physics frame we update the tip position
+
+@onready var hook_collision_sound = $hookCollisionSound
+
 func _physics_process(_delta: float) -> void:
 	$Tip.global_position = tip	# The player might have moved and thus updated the position of the tip -> reset it
 	if flying:
@@ -48,6 +51,7 @@ func _physics_process(_delta: float) -> void:
 			release()
 		var collisionResult = $Tip.move_and_collide(direction * SPEED * _delta)	
 		if collisionResult:
+			hook_collision_sound.play(0.0)
 			var collider = collisionResult.get_collider()
 			if is_instance_of(collider, HookThing):
 				hooked = true	# Got something!
