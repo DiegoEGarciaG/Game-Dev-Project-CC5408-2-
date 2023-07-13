@@ -308,26 +308,13 @@ theme_override_fonts/font = ExtResource("3_ps0p8")
 theme_override_font_sizes/font_size = 20
 text = "2"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="3" type="Button" parent="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="3" type="Button" parent="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 100)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_ps0p8")
 theme_override_font_sizes/font_size = 20
 text = "3
-"
-
-[node name="4" type="Button" parent="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_ps0p8")
-theme_override_font_sizes/font_size = 20
-text = "4
-
 "
 
 [node name="Testing" type="Button" parent="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer"]
@@ -374,10 +361,8 @@ bus = &"SoundEffects"
 [connection signal="pressed" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/1" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/2" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/2" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/3" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/3" to="." method="_on_button_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/4" to="." method="_on_button_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/4" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/3" to="." method="_on_button_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/3" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/Testing" to="." method="_on_button_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/Testing" to="." method="_on_button_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Levels_menu/PanelContainer/MarginContainer/VBoxContainer/Back_button" to="." method="_on_button_mouse_entered"]

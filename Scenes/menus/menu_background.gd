@@ -16,7 +16,6 @@ extends PanelContainer
 @onready var level_1 = %"1"
 @onready var level_2 = %"2"
 @onready var level_3 = %"3"
-@onready var level_4 = %"4"
 @onready var testing = %Testing
 
 # Variables to change visibility between the settings screen and main screen
@@ -42,6 +41,7 @@ func _ready():
 	#Connect levels
 	level_1.pressed.connect(_on_level1_pressed)
 	level_2.pressed.connect(_on_level2_pressed)
+	level_3.pressed.connect(_on_level3_pressed)
 	testing.pressed.connect(_on_testing_pressed)
 
 func _on_play_pressed():
@@ -59,6 +59,9 @@ func _on_level1_pressed():
 	
 func _on_level2_pressed():
 	get_tree().change_scene_to_file("res://Scenes/levels/Level2.tscn")
+	
+func _on_level3_pressed():
+	get_tree().change_scene_to_file("res://Scenes/levels/Level3.tscn")
 	
 func _on_testing_pressed():
 	get_tree().change_scene_to_file("res://Scenes/levels/Testing_grounds.tscn")
