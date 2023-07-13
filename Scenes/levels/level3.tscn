@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://grm6xlghgon3" path="res://Scenes/characters/hookCharacter/HookCharacter.tscn" id="8_so8co"]
 [ext_resource type="PackedScene" uid="uid://bp76nyf8y26nv" path="res://Scenes/Objects/HookThing.tscn" id="12_g1a3f"]
 [ext_resource type="Script" path="res://Scenes/Objects/FollowCamera.gd" id="12_q7wuq"]
-[ext_resource type="PackedScene" uid="uid://yoiwbuky7qcu" path="res://Scenes/Objects/Platforms/pipePlatform.tscn" id="13_8svoc"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Platforms/pipePlatform.tscn" id="13_8svoc"]
 [ext_resource type="PackedScene" uid="uid://q8jp7eq2amp1" path="res://Scenes/menus/pause.tscn" id="13_crrht"]
 [ext_resource type="FontFile" uid="uid://bfrgcrc3r2ncq" path="res://Assets/QuinqueFive.ttf" id="14_al7t5"]
 [ext_resource type="Texture2D" uid="uid://bj2xicgsbj0d1" path="res://Assets/ObjectAssets/pipePlatform.png" id="14_iibce"]
