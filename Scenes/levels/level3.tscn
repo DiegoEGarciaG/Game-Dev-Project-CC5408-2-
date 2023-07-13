@@ -1081,6 +1081,7 @@ position = Vector2(490, -22)
 
 [node name="HookThing3" parent="PhysicObjs" instance=ExtResource("12_g1a3f")]
 position = Vector2(1213, -390)
+scale = Vector2(2.5, 2.5)
 
 [node name="pipePlatform" parent="PhysicObjs" instance=ExtResource("13_8svoc")]
 position = Vector2(1872, -331)

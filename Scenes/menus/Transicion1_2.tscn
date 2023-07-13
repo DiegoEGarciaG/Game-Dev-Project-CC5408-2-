@@ -53,7 +53,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Titulo"
 label_settings = SubResource("LabelSettings_arav3")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -68,7 +67,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Cuerpo"
+text = "As they moved forward through the port, Aira and Grappel noticed the poor state it was in, a city which once was a portual one, had become 
+almost deserted on the zone."
 
 [node name="Button" type="Button" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(130, 40)
